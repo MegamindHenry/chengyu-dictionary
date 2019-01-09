@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to="semesterproject">
+  <!-- Inherit our applications main module.                      -->
+  <inherits name='com.colewe.ws1819.semesterproject' />
+
+  <!-- Specify the path to any remote services.                   -->
+  <servlet path="/semesterproject/greet" class="com.colewe.ws1819.server.GreetingServiceImpl" />
+
+</module>
