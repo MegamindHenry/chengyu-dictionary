@@ -12,6 +12,8 @@ Also, a user can search with provided tags, such as "numbers", "animals" and eve
 
 #### Examples of use cases
 For example, you can search by "one stone two birds" ,then "一石二鸟" would come up, with its original Chinese lexeme "一石二鸟", its Pinyin “Yi Shi Er Niao”, its literal meaning "one stone two birds", its figurative meaning "doing one thing gets multiple benifits", and its tags, "number" and "animal". You can also search by its literal or figurative meaning. In addition to that, you can select tags, such as "number", then every 4-character idiom that contain at least one number character (e.g. "七上八下": 'seven up eight down') would come up. You can also search with form tags which I mentioned above. Let's say "AXAY", then all idioms with first and third character being the same come up.
+![](/Users/jingwen/Desktop/2.jpeg)
+![](/Users/jingwen/Desktop/1.jpeg)
 
 #### Resources
 Right now, there are several database covered in Chinese. 
@@ -29,9 +31,11 @@ However, we need to translate them into English in both literal and figurative m
 
 Enhancing information:
  Include tags/badges for each Chenyu which gives:
- 1.  structural information (common forms are: AABB, ABAC, AABC, BCAA...), great to have for users who want to solve Chengyu puzzles
- 2.  character information (tells if the Chengyu contain at least one character which represent animal, number, organs, people...)
- 3.  semantic information (positive/negative/neutral; is story-based or not)
+ 1. structural information (common forms are: AABB, ABAC, AABC, BCAA...), great to have for users who want to solve Chengyu puzzles
+ 2. character information (tells if the Chengyu contain at least one character which represent animal, number, organs, people...)
+ 3. semantic information (positive/negative/neutral; is story-based or not)
+
+ ![](/Users/jingwen/Desktop/3.jpeg)
 
 Entry Representation:
 
