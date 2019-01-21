@@ -17,6 +17,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
+
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
@@ -29,16 +30,12 @@ public class semesterproject implements EntryPoint {
       + "attempting to contact the server. Please check your network "
       + "connection and try again.";
 
-  /**
-   * Create a remote service proxy to talk to the server-side Greeting service.
-   */
-  private final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
-
-  private final Messages messages = GWT.create(Messages.class);
 
   /**
    * This is the entry point method.
    */
   public void onModuleLoad() {
+	  UIPanel uiPanel = new UIPanel();
+	  RootPanel.get().add(uiPanel);
   }
 }

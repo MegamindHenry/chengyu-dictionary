@@ -4,6 +4,6 @@
   <inherits name='com.colewe.ws1819.semesterproject' />
 
   <!-- Specify the path to any remote services.                   -->
-  <servlet path="/semesterproject/greet" class="com.colewe.ws1819.server.GreetingServiceImpl" />
+  <!-- <servlet path="/semesterproject/greet" class="com.colewe.ws1819.server.GreetingServiceImpl" /> -->
 
 </module>

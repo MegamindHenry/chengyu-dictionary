@@ -6,7 +6,7 @@
 <web-app>
 
   <!-- Servlets -->
-  <servlet>
+<!--   <servlet>
     <servlet-name>greetServlet</servlet-name>
     <servlet-class>com.colewe.ws1819.server.GreetingServiceImpl</servlet-class>
   </servlet>
@@ -14,7 +14,7 @@
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
     <url-pattern>/semesterproject/greet</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
 
   <!-- Default page to serve -->
   <welcome-file-list>
