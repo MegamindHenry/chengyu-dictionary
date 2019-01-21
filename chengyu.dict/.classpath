@@ -41,22 +41,5 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/jingwen/.p2/pool/plugins/com.gwtplugins.gwt.eclipse.sdkbundle.gwt28_2.8.0.201710131939/gwt-2.8.2/gwt-user.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/Users/jingwen/.p2/pool/plugins/com.gwtplugins.gwt.eclipse.sdkbundle.gwt28_2.8.0.201710131939/gwt-2.8.2/doc/javadoc/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/jingwen/.p2/pool/plugins/com.gwtplugins.gwt.eclipse.sdkbundle.gwt28_2.8.0.201710131939/gwt-2.8.2/gwt-codeserver.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/Users/jingwen/.p2/pool/plugins/com.gwtplugins.gwt.eclipse.sdkbundle.gwt28_2.8.0.201710131939/gwt-2.8.2/doc/javadoc/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/jingwen/.p2/pool/plugins/com.gwtplugins.gwt.eclipse.sdkbundle.gwt28_2.8.0.201710131939/gwt-2.8.2/gwt-dev.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/Users/jingwen/.p2/pool/plugins/com.gwtplugins.gwt.eclipse.sdkbundle.gwt28_2.8.0.201710131939/gwt-2.8.2/doc/javadoc/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/jingwen/.p2/pool/plugins/com.gwtplugins.gwt.eclipse.sdkbundle.gwt28_2.8.0.201710131939/gwt-2.8.2/validation-api-1.0.0.GA-sources.jar"/>
-	<classpathentry kind="lib" path="/Users/jingwen/.p2/pool/plugins/com.gwtplugins.gwt.eclipse.sdkbundle.gwt28_2.8.0.201710131939/gwt-2.8.2/validation-api-1.0.0.GA.jar" sourcepath="/Users/jingwen/.p2/pool/plugins/com.gwtplugins.gwt.eclipse.sdkbundle.gwt28_2.8.0.201710131939/gwt-2.8.2/validation-api-1.0.0.GA-sources.jar"/>
 	<classpathentry kind="output" path="target/chengyu.dict-1.0/WEB-INF/classes"/>
 </classpath>
