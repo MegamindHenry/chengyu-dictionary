@@ -6,6 +6,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/gwt"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <property name="context-root" value="chengyu.dict"/>
         <property name="java-output-path" value="/chengyu.dict/target/chengyu.dict-1.0/WEB-INF/classes"/>
     </wb-module>
