@@ -2,6 +2,10 @@
 
 
 /** Example rules used by the template application (remove for your app) */
+body{
+  font-family: "Noto Sans", "Noto Sans CJK SC", serif;
+}
+
 h1 {
   font-size: 2em;
   font-weight: bold;

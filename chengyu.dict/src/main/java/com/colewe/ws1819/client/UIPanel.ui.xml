@@ -18,9 +18,9 @@
 				<g:Label>Please select your search preferences and enter your search below: </g:Label>
 			</div>
 			<b:ButtonGroup dataToggle="BUTTONS">
-  				<b:RadioButton ui:field="chineseOption" name="options">Chinese</b:RadioButton>
-  				<b:RadioButton ui:field="pinyinOption" name="options">Pinyin</b:RadioButton>
-  				<b:RadioButton ui:field="englishOption" name="options">English</b:RadioButton>
+  				<b:RadioButton ui:field="chineseOption" name="options" type="DANGER">Chinese</b:RadioButton>
+  				<b:RadioButton ui:field="pinyinOption" name="options" type="WARNING">Pinyin</b:RadioButton>
+  				<b:RadioButton ui:field="englishOption" name="options" type="PRIMARY">English</b:RadioButton>
   				<b:RadioButton ui:field="advancedOption" name="options" enabled="false">Advanced</b:RadioButton>
 			</b:ButtonGroup>
 			<div class="form-group">
