@@ -6,15 +6,17 @@
 <web-app>
 
   <!-- Servlets -->
-<!--   <servlet>
-    <servlet-name>greetServlet</servlet-name>
-    <servlet-class>com.colewe.ws1819.server.GreetingServiceImpl</servlet-class>
+  <servlet>
+    <servlet-name>dictionaryServlet</servlet-name>
+    <servlet-class>com.colewe.ws1819.server.DictionaryServiceImpl</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/semesterproject/greet</url-pattern>
-  </servlet-mapping> -->
+    <servlet-name>dictionaryServlet</servlet-name>
+    <url-pattern>/semesterproject/dictionary</url-pattern>
+  </servlet-mapping>
+  
+  
 
   <!-- Default page to serve -->
   <welcome-file-list>
