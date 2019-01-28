@@ -65,6 +65,7 @@ public class semesterproject implements EntryPoint {
 						// TODO Auto-generated method stub
 //						uiPanel.outputHTML.updateOutput(result, target, highlight, reverse);
 						uiPanel.updateResult(results);
+//						Window.alert("adlksdjf");
 					}
 				    
 				  };

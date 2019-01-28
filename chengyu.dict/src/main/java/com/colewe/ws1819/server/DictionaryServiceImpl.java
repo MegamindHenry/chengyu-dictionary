@@ -67,11 +67,18 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				String id = rs.getString("ID");
-				String chinese = rs.getString("Chinese");
-				String eng_literal = rs.getString("EnglishLiteral");
-				
-				String[] str = {id, chinese, eng_literal};
+				String[] str = {
+						rs.getString("ID"),
+						rs.getString("Abbr"),
+						rs.getString("Chinese"),
+						rs.getString("EnglishLiteral"),
+						rs.getString("EnglishFigurative"),
+						rs.getString("Pinyin"),
+						rs.getString("Example"),
+						rs.getString("ExampleTranslation"),
+						rs.getString("Origin"),
+						rs.getString("OriginTranslation"),
+						rs.getString("Frequency")};
 				result.add(str);
 			}
 			
