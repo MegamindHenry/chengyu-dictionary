@@ -26,7 +26,7 @@ import com.colewe.ws1819.client.DictionaryService;
 public class DictionaryServiceImpl extends RemoteServiceServlet implements DictionaryService {
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost/colewe";
+	static final String DB_URL = "jdbc:mysql://localhost/colewe?useUnicode=yes&characterEncoding=UTF-8";
 
 	// Database credentials
 	static final String USER = "root";
@@ -51,7 +51,7 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 	 * @author Xuefeng and Jingwen
 	 */
 	@Override
-	public ArrayList<String[]> search() {
+	public ArrayList<String[]> search(String target, int mode) {
 		//doing the search
 		
 		ArrayList<String[]> result = new ArrayList<>();
@@ -63,7 +63,26 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			
 			ResultSet rs;
 			
-			stmt = conn.prepareStatement("select * from Chengyu");
+			switch(mode) {
+				case 1:
+					target = "一石二鸟";
+					stmt = conn.prepareStatement("select * from Chengyu where Chinese = '一石二鸟'");
+//					stmt.setString(1, "\'%" + target + "\'%");
+					break;
+				case 2:
+					stmt = conn.prepareStatement("select * from Chengyu where Pinyin like ?");
+					stmt.setString(1, "%" + target + "%");
+					break;
+				case 3:
+					stmt = conn.prepareStatement("select * from Chengyu where EnglishLiteral like ?");
+					stmt.setString(1, "%" + target + "%");
+					break;
+				default:
+					stmt = conn.prepareStatement("select * from Chengyu where Chinese like ?");
+					stmt.setString(1, "%" + target + "%");
+					break;
+			}
+			
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {

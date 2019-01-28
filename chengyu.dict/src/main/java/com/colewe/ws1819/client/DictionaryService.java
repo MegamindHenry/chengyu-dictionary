@@ -15,7 +15,9 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 @RemoteServiceRelativePath("dictionary")
 public interface DictionaryService extends RemoteService{
 	
-	ArrayList<String[]> search();
+//	ArrayList<String[]> search();
+	
+	ArrayList<String[]> search(String target, int mode);
 
 
 }

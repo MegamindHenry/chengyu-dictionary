@@ -47,15 +47,11 @@ public class UIPanel extends Composite implements HasText {
 	@UiField
 	RadioButton advancedOption;
 	@UiField
-	CheckBox chineseCheckBox;
-	@UiField
-	CheckBox pinyinCheckBox;
-	@UiField
-	CheckBox englishCheckBox;
-	@UiField
 	Button searchButton;
 	@UiField 
 	HTML outputHTML;
+	
+	int mode = 1;
 
 	
 
@@ -73,6 +69,8 @@ public class UIPanel extends Composite implements HasText {
 	public UIPanel() {
 		initWidget(uiBinder.createAndBindUi(this));
 		
+		chineseOption.setActive(true);
+		
 		chineseOption.addClickHandler(new ClickHandler(){
 
 			@Override
@@ -80,7 +78,7 @@ public class UIPanel extends Composite implements HasText {
 				chineseOption.setActive(true);
 				pinyinOption.setActive(false);
 				englishOption.setActive(false);
-				Window.alert("Chinese chosen.");				
+				mode = 1;
 			}
 			
 		});
@@ -92,7 +90,7 @@ public class UIPanel extends Composite implements HasText {
 				chineseOption.setActive(false);
 				pinyinOption.setActive(true);
 				englishOption.setActive(false);
-				Window.alert("Pinyin chosen.");
+				mode = 2;
 			}
 			
 		});
@@ -104,8 +102,7 @@ public class UIPanel extends Composite implements HasText {
 				chineseOption.setActive(false);
 				pinyinOption.setActive(false);
 				englishOption.setActive(true);
-				Window.alert("English chosen.");
-				
+				mode = 3;
 			}
 			
 		});
@@ -121,12 +118,6 @@ public class UIPanel extends Composite implements HasText {
 		});
 		
 		searchButton.setText("search");
-		chineseCheckBox.setText("Chinese");
-		chineseCheckBox.setValue(false);
-		pinyinCheckBox.setText("Pinyin");
-		pinyinCheckBox.setValue(false);
-		englishCheckBox.setText("English");
-		englishCheckBox.setValue(false);
 		
 		outputHTML.setHTML("<h3>Your output will go here<h3>");
 		

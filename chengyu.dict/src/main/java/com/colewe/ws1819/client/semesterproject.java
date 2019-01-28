@@ -49,6 +49,9 @@ public class semesterproject implements EntryPoint {
 	  ClickHandler searchCH = new ClickHandler() {
 			public void onClick(ClickEvent e) {
 				
+				String target = uiPanel.inputTextBox.getText();
+				int mode = uiPanel.mode;
+				
 				AsyncCallback<ArrayList<String[]>> callback = new AsyncCallback<ArrayList<String[]>>() {
 
 					@Override
@@ -65,13 +68,12 @@ public class semesterproject implements EntryPoint {
 						// TODO Auto-generated method stub
 //						uiPanel.outputHTML.updateOutput(result, target, highlight, reverse);
 						uiPanel.updateResult(results);
-//						Window.alert("adlksdjf");
 					}
 				    
 				  };
 				
 				
-				  dictionarySvc.search(callback);
+				  dictionarySvc.search(target, mode, callback);
 				
 			}
 		};

@@ -25,9 +25,6 @@
 			</b:ButtonGroup>
 			<div class="form-group">
 				<g:TextBox	ui:field="inputTextBox"></g:TextBox>
-				<g:CheckBox	ui:field="chineseCheckBox"></g:CheckBox>
-				<g:CheckBox	ui:field="pinyinCheckBox"></g:CheckBox>
-				<g:CheckBox	ui:field="englishCheckBox"></g:CheckBox>
 				<div></div>
 				<g:Button	ui:field="searchButton"></g:Button>
 			</div>
