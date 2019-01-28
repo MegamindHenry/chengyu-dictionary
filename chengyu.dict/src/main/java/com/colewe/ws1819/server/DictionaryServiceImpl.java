@@ -65,9 +65,8 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			
 			switch(mode) {
 				case 1:
-					target = "一石二鸟";
-					stmt = conn.prepareStatement("select * from Chengyu where Chinese = '一石二鸟'");
-//					stmt.setString(1, "\'%" + target + "\'%");
+					stmt = conn.prepareStatement("select * from Chengyu where Chinese like ?");
+					stmt.setString(1, "%" + target + "%");
 					break;
 				case 2:
 					stmt = conn.prepareStatement("select * from Chengyu where Pinyin like ?");
