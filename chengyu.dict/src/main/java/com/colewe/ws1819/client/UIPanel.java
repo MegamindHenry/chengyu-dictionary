@@ -47,15 +47,11 @@ public class UIPanel extends Composite implements HasText {
 	@UiField
 	RadioButton advancedOption;
 	@UiField
-	CheckBox chineseCheckBox;
-	@UiField
-	CheckBox pinyinCheckBox;
-	@UiField
-	CheckBox englishCheckBox;
-	@UiField
 	Button searchButton;
 	@UiField 
 	HTML outputHTML;
+	
+	int mode = 1;
 
 	
 
@@ -73,6 +69,8 @@ public class UIPanel extends Composite implements HasText {
 	public UIPanel() {
 		initWidget(uiBinder.createAndBindUi(this));
 		
+		chineseOption.setActive(true);
+		
 		chineseOption.addClickHandler(new ClickHandler(){
 
 			@Override
@@ -80,7 +78,7 @@ public class UIPanel extends Composite implements HasText {
 				chineseOption.setActive(true);
 				pinyinOption.setActive(false);
 				englishOption.setActive(false);
-				Window.alert("Chinese chosen.");				
+				mode = 1;
 			}
 			
 		});
@@ -92,7 +90,7 @@ public class UIPanel extends Composite implements HasText {
 				chineseOption.setActive(false);
 				pinyinOption.setActive(true);
 				englishOption.setActive(false);
-				Window.alert("Pinyin chosen.");
+				mode = 2;
 			}
 			
 		});
@@ -104,8 +102,7 @@ public class UIPanel extends Composite implements HasText {
 				chineseOption.setActive(false);
 				pinyinOption.setActive(false);
 				englishOption.setActive(true);
-				Window.alert("English chosen.");
-				
+				mode = 3;
 			}
 			
 		});
@@ -121,12 +118,6 @@ public class UIPanel extends Composite implements HasText {
 		});
 		
 		searchButton.setText("search");
-		chineseCheckBox.setText("Chinese");
-		chineseCheckBox.setValue(false);
-		pinyinCheckBox.setText("Pinyin");
-		pinyinCheckBox.setValue(false);
-		englishCheckBox.setText("English");
-		englishCheckBox.setValue(false);
 		
 		outputHTML.setHTML("<h3>Your output will go here<h3>");
 		
@@ -151,8 +142,143 @@ public class UIPanel extends Composite implements HasText {
 	}
 	
 	public void updateResult(ArrayList<String[]> results) {
+		OutputTableBuilder otb = new OutputTableBuilder(results);
+		outputHTML.setHTML(otb.toHTML());
+	}
+	
+	private class OutputTableBuilder{
 		
-		outputHTML.setHTML("<h5>Hello</h5>");
+		StringBuilder sb;
+		
+		public OutputTableBuilder() {
+		}
+		
+		public OutputTableBuilder(ArrayList<String[]> results) {
+			sb = new StringBuilder("");
+			this.appendTableOpen(sb, "table");
+			this.appendTHeadOpen(sb, "thead-dark");
+			this.appendTrOpen(sb, "even");
+			this.appendTHeader(sb, "ID");
+			this.appendTHeader(sb, "Abbr");
+			this.appendTHeader(sb, "Chinese");
+			this.appendTHeader(sb, "English Literal");
+			this.appendTHeader(sb, "English Figurative");
+			this.appendTHeader(sb, "Pinyin");
+			this.appendTHeader(sb, "Example");
+			this.appendTHeader(sb, "Example Translation");
+			this.appendTHeader(sb, "Origin");
+			this.appendTHeader(sb, "Origin Translation");
+			this.appendTHeader(sb, "Frequency");
+			this.appendTrClose(sb);
+			this.appendTHeadClose(sb);
+			this.appendTBodyOpen(sb);
+			
+			for(String[] result: results) {
+				this.appendTrOpen(sb);
+				this.appendTEntries(sb, result);
+				this.appendTrClose(sb);
+			}
+			this.appendTBodyClose(sb);
+			this.appendTableClose(sb);
+		}
+		
+		private String toHTML() {
+			return this.sb.toString();
+		}
+		
+		//may be used for highlighting?
+		private void appendHTMLTag(StringBuilder sb, String tag, String elem) {
+			sb.append("<").append(tag).append(">"); // open tag
+			sb.append(elem);
+			sb.append("</").append(tag).append(">"); // closing tag
+		}
+		
+		private void appendHTMLTag(StringBuilder sb, String tag, String elem, String cssClass) {
+			sb.append("<").append(tag).append(" class=\"").append(cssClass).append("\">"); // open tag
+			sb.append(elem);
+			sb.append("</").append(tag).append(">"); // closing tag
+		}
+		
+		private void appendTableOpen(StringBuilder sb) {
+			sb.append("<table>");
+		}
+		
+		private void appendTableOpen(StringBuilder sb, String cssClass) {
+			sb.append("<table class=\"" + cssClass + "\">");
+		}
+		
+		private void appendTableClose(StringBuilder sb) {
+			sb.append("</table>");
+		}
+		
+		private void appendTrOpen(StringBuilder sb) {
+			sb.append("<tr>");
+		}
+		
+		private void appendTrOpen(StringBuilder sb, String cssClass) {
+			sb.append("<tr class=\"" + cssClass + "\">");
+		}
+		
+		private void appendTrClose(StringBuilder sb) {
+			sb.append("</tr>");
+		}
+		private void appendTHeadOpen(StringBuilder sb) {
+			sb.append("<thead>");
+		}
+		
+		private void appendTHeadOpen(StringBuilder sb, String cssClass) {
+			sb.append("<thead class=\"" + cssClass + "\">");
+		}
+		
+		private void appendTHeadClose(StringBuilder sb) {
+			sb.append("</thead>");
+		}
+		
+		private void appendTBodyOpen(StringBuilder sb) {
+			sb.append("<tbody>");
+		}
+		
+		private void appendTBodyClose(StringBuilder sb) {
+			sb.append("</tbody>");
+		}
+		
+		private void appendTdOpen(StringBuilder sb) {
+			sb.append("<td>");
+		}
+		
+		private void appendTdOpen(StringBuilder sb, String cssClass) {
+			sb.append("<td class=\"" + cssClass + "\">");
+		}
+		
+		private void appendTdClose(StringBuilder sb) {
+			sb.append("</td>");
+		}
+		
+		private void appendThOpen(StringBuilder sb) {
+			sb.append("<th>");
+		}
+		
+		private void appendThOpen(StringBuilder sb, String cssClass) {
+			sb.append("<th class=\"" + cssClass + "\">");
+		}
+		
+		private void appendThClose(StringBuilder sb) {
+			sb.append("</th>");
+		}
+		
+		private void appendTHeader(StringBuilder sb, String head) {
+			this.appendHTMLTag(sb,"th",head);
+		}
+		
+		private void appendTHeader(StringBuilder sb, String head, String cssClass) {
+			this.appendHTMLTag(sb,"th",head, cssClass);
+		}
+		
+		private void appendTEntries(StringBuilder sb, String[] result) {
+			for(String data: result) {
+				this.appendHTMLTag(sb, "td", data);
+			}
+		}
 	}
 
 
