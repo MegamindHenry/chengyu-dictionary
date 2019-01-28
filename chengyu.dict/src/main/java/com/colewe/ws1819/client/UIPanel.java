@@ -16,6 +16,9 @@ import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasText;
+
+import java.util.ArrayList;
+
 import org.gwtbootstrap3.client.*;
 import org.gwtbootstrap3.client.ui.RadioButton;
 
@@ -145,6 +148,11 @@ public class UIPanel extends Composite implements HasText {
 	public void setText(String text) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void updateResult(ArrayList<String[]> results) {
+		
+		outputHTML.setHTML("<h5>Hello</h5>");
 	}
 
 

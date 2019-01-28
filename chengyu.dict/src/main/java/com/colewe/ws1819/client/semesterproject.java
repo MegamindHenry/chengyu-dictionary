@@ -64,9 +64,7 @@ public class semesterproject implements EntryPoint {
 							ArrayList<String[]> results) {
 						// TODO Auto-generated method stub
 //						uiPanel.outputHTML.updateOutput(result, target, highlight, reverse);
-						for(String[] data: results) {
-							Window.alert(data[1]);
-						}
+						uiPanel.updateResult(results);
 					}
 				    
 				  };
