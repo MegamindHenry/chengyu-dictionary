@@ -7,8 +7,8 @@ CREATE TABLE Chengyu (
 	Pinyin VARCHAR(40),
 	Example VARCHAR(255),
 	ExampleTranslation VARCHAR(1000),
-	Origin VARCHAR(30000),
-	Origin VARCHAR(65534),
+	Origin TEXT,
+	OriginTranslation TEXT,
 	Frequency SMALLINT,
 	CONSTRAINT PK_Chengyu PRIMARY KEY (ID)
 );
