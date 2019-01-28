@@ -16,6 +16,7 @@
 			<div class="form-group">
 				<g:Label>Please select your search preferences and enter your search below: </g:Label>
 			</div>
+			
 			<div class="form-group">
 				<g:TextBox	ui:field="inputTextBox"></g:TextBox>
 				<g:CheckBox	ui:field="chineseCheckBox"></g:CheckBox>

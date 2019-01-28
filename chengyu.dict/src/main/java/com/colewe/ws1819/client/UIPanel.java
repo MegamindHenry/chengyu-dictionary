@@ -15,6 +15,7 @@ import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -64,6 +65,7 @@ public class UIPanel extends Composite implements HasText {
 		pinyinCheckBox.setValue(false);
 		englishCheckBox.setText("English");
 		englishCheckBox.setValue(false);
+		
 		outputHTML.setHTML("<h3>Your output will go here<h3>");
 		
 		searchButton.addStyleName("btn btn-dark");

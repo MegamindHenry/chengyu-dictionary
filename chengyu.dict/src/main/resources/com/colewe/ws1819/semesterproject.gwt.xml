@@ -11,6 +11,17 @@
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
 
   <!-- Other module inherits                                      -->
+  <module>
+  	<inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
+  	
+  	<public path='resource'>
+    	<include name='css/*.css'/>
+    	<include name='js/*.js'/>
+  	</public>
+
+  	<stylesheet src='css/theme.css'/>
+  	<script src='js/theme.js'/>
+  </module>
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='com.colewe.ws1819.client.semesterproject' />
