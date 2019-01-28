@@ -1,9 +1,14 @@
 CREATE TABLE Chengyu (
 	ID INT NOT NULL,
+	Abbr VARCHAR(10),
 	Chinese VARCHAR(10),
 	EnglishLiteral VARCHAR(100),
 	EnglishFigurative VARCHAR(100),
 	Pinyin VARCHAR(40),
+	Example VARCHAR(255),
+	ExampleTranslation VARCHAR(1000),
+	Origin VARCHAR(30000),
+	Origin VARCHAR(65534),
 	Frequency SMALLINT,
 	CONSTRAINT PK_Chengyu PRIMARY KEY (ID)
 );
