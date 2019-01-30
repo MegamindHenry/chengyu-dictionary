@@ -43,5 +43,5 @@ sorted_list = sorted(data_list, key=lambda k: k['Frequency'], reverse=True)
 
 output_string = json.dumps(sorted_list, indent=4, ensure_ascii=False)
 
-with open("data.txt", "w+") as f:
+with open("data.json", "w+") as f:
 	f.write(output_string)
