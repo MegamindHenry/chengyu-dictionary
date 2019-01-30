@@ -78,6 +78,13 @@
     	<version>0.9.4</version>
     	<scope>provided</scope>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.gwtbootstrap3/gwtbootstrap3-extras -->
+	<dependency>
+    	<groupId>org.gwtbootstrap3</groupId>
+    	<artifactId>gwtbootstrap3-extras</artifactId>
+    	<version>0.9.4</version>
+    	<scope>provided</scope>
+	</dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

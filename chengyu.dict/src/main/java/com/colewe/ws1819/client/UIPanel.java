@@ -10,7 +10,6 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.ButtonBase;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
@@ -20,7 +19,9 @@ import com.google.gwt.user.client.ui.HasText;
 import java.util.ArrayList;
 
 import org.gwtbootstrap3.client.*;
+import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.RadioButton;
+import org.gwtbootstrap3.extras.select.client.ui.MultipleSelect;
 
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -45,7 +46,9 @@ public class UIPanel extends Composite implements HasText {
 	@UiField
 	RadioButton englishOption;
 	@UiField
-	RadioButton advancedOption;
+	Button advancedOption;
+	@UiField
+	MultipleSelect filter;
 	@UiField
 	Button searchButton;
 	@UiField 
@@ -69,7 +72,7 @@ public class UIPanel extends Composite implements HasText {
 	public UIPanel() {
 		initWidget(uiBinder.createAndBindUi(this));
 		
-		chineseOption.setActive(true);
+		chineseOption.setActive(true); // search in Chinese is preselected as default
 		
 		chineseOption.addClickHandler(new ClickHandler(){
 
@@ -111,13 +114,15 @@ public class UIPanel extends Composite implements HasText {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				advancedOption.setActive(true);
-				
+				// do something (activate advanced search)
+			
 			}
 			
 		});
 		
 		searchButton.setText("search");
+		
+		filter.setVisible(true);
 		
 		outputHTML.setHTML("<h3>Your output will go here<h3>");
 		

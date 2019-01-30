@@ -12,6 +12,7 @@
 
   <!-- Other module inherits                                      -->
   <inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
+  <inherits name="org.gwtbootstrap3.extras.select.Select"/>
   	
   	<!-- <public path='resource'>
     	<include name='css/*.css'/>
