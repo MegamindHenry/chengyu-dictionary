@@ -50,6 +50,10 @@ public class semesterproject implements EntryPoint {
 			public void onClick(ClickEvent e) {
 				
 				String target = uiPanel.inputTextBox.getText();
+				if (!FieldVerifier.isValidInput(target)) {
+					Window.alert("Please enter the string you want to search");
+					return;
+				}
 				int mode = uiPanel.mode;
 				
 				AsyncCallback<ArrayList<String[]>> callback = new AsyncCallback<ArrayList<String[]>>() {

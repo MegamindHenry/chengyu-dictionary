@@ -39,4 +39,11 @@ public class FieldVerifier {
     }
     return name.length() > 3;
   }
+  
+  public static boolean isValidInput(String input) {
+	  if (input == null) {
+		  return false;
+	  }
+	  return input.length() > 0;
+  }
 }
