@@ -18,7 +18,7 @@ data_list = list()
 
 total_idioms = len(idioms)
 
-for k, idiom in enumerate(idioms[:10]):
+for k, idiom in enumerate(idioms):
 	count = file.count(idiom[1])
 	frequency = {
 		"ID": idiom[0].strip('"'),
