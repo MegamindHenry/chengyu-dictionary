@@ -4,6 +4,13 @@
 /** Example rules used by the template application (remove for your app) */
 body{
   font-family: "Noto Sans", "Noto Sans CJK SC", serif;
+  text-align: center;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
 }
 
 h1 {
@@ -30,6 +37,11 @@ h1 {
 
 .serverResponseLabelError {
   color: red;
+}
+
+.advanced-search-group{
+	padding-left: 100px;
+	padding-right: 100px;
 }
 
 /** Set ids using widget.getElement().setId("idOfElement") */

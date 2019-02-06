@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import org.gwtbootstrap3.client.*;
 import org.gwtbootstrap3.client.ui.Button;
+import org.gwtbootstrap3.client.ui.PanelGroup;
 import org.gwtbootstrap3.client.ui.RadioButton;
 import org.gwtbootstrap3.extras.select.client.ui.MultipleSelect;
 

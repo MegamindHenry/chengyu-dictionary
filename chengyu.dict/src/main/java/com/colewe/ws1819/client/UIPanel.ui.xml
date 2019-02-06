@@ -12,60 +12,62 @@
 		<!-- Add GWT widgets here. Enter < and hit Ctrl-Space to auto-complete 
 			widget names. The ui:field attribute binds an element to a field in the owner 
 			class. See the GWT docs on UI Binder for more details. -->
-		<g:HTML><h2>Chengyu Dictionary</h2></g:HTML>
-		<form class="col-xl-6 col-lg-6 col-md-8 col-sm-10 col-12">
-			<div class="form-group">
-				<g:Label>Please select your search preferences and enter your search below: </g:Label>
-			</div>
+		<div class="page-header"><h1>Chengyu Dictionary</h1></div>
+		<div>
+			<form>
+				<div class="prompt-group">
+					<g:Label>Please select your search preferences and enter your search below: </g:Label>
+				</div>
 			
-			<div class="button-group">
-			<b:ButtonGroup dataToggle="BUTTONS">
-  				<b:RadioButton ui:field="chineseOption" name="options" type="DANGER">Chinese</b:RadioButton>
-  				<b:RadioButton ui:field="pinyinOption" name="options" type="WARNING">Pinyin</b:RadioButton>
-  				<b:RadioButton ui:field="englishOption" name="options" type="PRIMARY">English</b:RadioButton>
-			</b:ButtonGroup>
-			<!-- <b:ButtonGroup dataToggle="BUTTONS"> -->
-			</div>
+				<div class="button-group">
+					<b:ButtonGroup dataToggle="BUTTONS">
+  						<b:RadioButton ui:field="chineseOption" name="options" type="DANGER">Chinese</b:RadioButton>
+  						<b:RadioButton ui:field="pinyinOption" name="options" type="WARNING">Pinyin</b:RadioButton>
+  						<b:RadioButton ui:field="englishOption" name="options" type="PRIMARY">English</b:RadioButton>
+					</b:ButtonGroup>
+					<!-- <b:ButtonGroup dataToggle="BUTTONS"> -->
+				</div>
 			
-			<div class="form-group">
-				<g:TextBox	ui:field="inputTextBox"></g:TextBox>
-				<div></div>
-				<b:Button	ui:field="searchButton"></b:Button>
-			</div>
-			
-			<div class="advanced-search-group">
-			<b:Button ui:field="advancedOption">Advanced</b:Button>
-			<select:MultipleSelect ui:field="filter">
-				<select:OptGroup label="Character">
-					<select:Option text="Animals" value="1"/>
-					<select:Option text="Numbers" value="2"/>
-					<select:Option text="Body Part/Organ" value="3"/>
-					<select:Option text="Color" value="4"/>
-					<select:Option text="People" value="5"/>
-					<select:Option text="stub" value="6"/>
-				</select:OptGroup>
-				<select:OptGroup label="Form">
-					<select:Option text="AABB" value="7"/>
-					<select:Option text="AXAY" value="8"/>
-					<select:Option text="XAYA" value="9"/>
-					<select:Option text="AAXY" value="10"/>
-					<select:Option text="XYAA" value="11"/>
-				</select:OptGroup>
-				<select:OptGroup label="Sense">
-					<select:Option text="Positive" value="12"/>
-					<select:Option text="Negative" value="13"/>
-					<select:Option text="Neutral" value="14"/>
-					<select:Option text="Story-based" value="15"/>
-				</select:OptGroup>
-					<select:Option text="Other tags to be added" value="16"/>
-				</select:MultipleSelect>
-			</div>
-			
-		</form>
+				<div class="form-group">
+					<g:TextBox	ui:field="inputTextBox"></g:TextBox>
+					<div></div>
+					<b:Button	ui:field="searchButton"></b:Button>
+				</div>
+		
+				<div class="advanced-search-group">
+					<b:Button ui:field="advancedOption">Advanced</b:Button>
+					<select:MultipleSelect ui:field="filter">
+						<select:OptGroup label="Character">
+							<select:Option text="Animals" value="1"/>
+							<select:Option text="Numbers" value="2"/>
+							<select:Option text="Body Part/Organ" value="3"/>
+							<select:Option text="Color" value="4"/>
+							<select:Option text="People" value="5"/>
+							<select:Option text="stub" value="6"/>
+						</select:OptGroup>
+						<select:OptGroup label="Form">
+							<select:Option text="AABB" value="7"/>
+							<select:Option text="AXAY" value="8"/>
+							<select:Option text="XAYA" value="9"/>
+							<select:Option text="AAXY" value="10"/>
+							<select:Option text="XYAA" value="11"/>
+						</select:OptGroup>
+						<select:OptGroup label="Sense">
+							<select:Option text="Positive" value="12"/>
+							<select:Option text="Negative" value="13"/>
+							<select:Option text="Neutral" value="14"/>
+							<select:Option text="Story-based" value="15"/>
+						</select:OptGroup>
+							<select:Option text="Other tags to be added" value="16"/>
+					</select:MultipleSelect>
+				</div>
+			</form>
+		</div>
 		
 		<div>
-			<g:HTML	ui:field="outputHTML"></g:HTML>
+		  	<g:HTML ui:field="outputHTML"></g:HTML>
 		</div>
 		
 	</g:HTMLPanel>
+
 </ui:UiBinder> 
