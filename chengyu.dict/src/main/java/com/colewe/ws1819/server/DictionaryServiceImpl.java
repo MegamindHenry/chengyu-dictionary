@@ -108,4 +108,60 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 		//return a result in a Arraylist with dictionaryentry
 		return result;
 	}
+	
+	/**
+	 * search function for dictionary
+	 * 
+	 * @param
+	 * @author Xuefeng and Jingwen
+	 */
+	@Override
+	public ArrayList<String[]> tagSearch(String tagID) {
+		//doing the search
+		
+		ArrayList<String[]> result = new ArrayList<>();
+		Connection conn;
+		PreparedStatement stmt = null;
+		
+		try {
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			
+			ResultSet rs;
+			
+			stmt = conn.prepareStatement("select * from ChengyuTag as ct " + 
+					"inner join Chengyu as c " + 
+					"on c.ID = ct.ChengyuID " + 
+					"inner join Tags as t " + 
+					"on t.ID = ct.TagID " + 
+					"where ct.TagID = ?");
+			stmt.setString(1, tagID);
+			
+			rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				String[] str = {
+						rs.getString("ID"),
+						rs.getString("Abbr"),
+						rs.getString("Chinese"),
+						rs.getString("EnglishLiteral"),
+						rs.getString("EnglishFigurative"),
+						rs.getString("Pinyin"),
+						rs.getString("Example"),
+						rs.getString("ExampleTranslation"),
+						rs.getString("Origin"),
+						rs.getString("OriginTranslation"),
+						rs.getString("Frequency"),
+						rs.getString("Tag")};
+						
+				result.add(str);
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		//return a result in a Arraylist with dictionaryentry
+		return result;
+	}
 }

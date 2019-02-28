@@ -81,8 +81,45 @@ public class semesterproject implements EntryPoint {
 				
 			}
 		};
+		
+		ClickHandler searchTag = new ClickHandler() {
+			public void onClick(ClickEvent e) {
+				
+				String target = uiPanel.inputTextBox.getText();
+				if (!FieldVerifier.isValidInput(target)) {
+					Window.alert("Please enter the string you want to search");
+					return;
+				}
+				int mode = uiPanel.mode;
+				
+				AsyncCallback<ArrayList<String[]>> callback = new AsyncCallback<ArrayList<String[]>>() {
+
+					@Override
+					public void onFailure(
+							Throwable caught) {
+						// TODO Auto-generated method stub
+						Window.alert("Failure");
+						
+					}
+
+					@Override
+					public void onSuccess(
+							ArrayList<String[]> results) {
+						// TODO Auto-generated method stub
+//						uiPanel.outputHTML.updateOutput(result, target, highlight, reverse);
+						uiPanel.updateResult(results);
+					}
+				    
+				  };
+				
+				
+				  dictionarySvc.tagSearch("21", callback);
+				
+			}
+		};
 	  
 	  
 	  uiPanel.searchButton.addClickHandler(searchCH);
+	  uiPanel.tagButton.addClickHandler(searchTag);
   }
 }

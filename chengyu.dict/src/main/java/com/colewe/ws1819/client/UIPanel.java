@@ -54,6 +54,8 @@ public class UIPanel extends Composite implements HasText {
 	Button searchButton;
 	@UiField 
 	HTML outputHTML;
+	@UiField
+	Button tagButton;
 	
 	int mode = 1;
 
@@ -122,12 +124,15 @@ public class UIPanel extends Composite implements HasText {
 		});
 		
 		searchButton.setText("search");
+		searchButton.addStyleName("btn btn-dark");
+		
+		tagButton.setText("tag");
+		tagButton.addStyleName("btn btn-dark");
 		
 		filter.setVisible(true);
 		
 		outputHTML.setHTML("<h3>Your output will go here<h3>");
 		
-		searchButton.addStyleName("btn btn-dark");
 		inputTextBox.addStyleName("form-control");
 	}
 
@@ -164,12 +169,12 @@ public class UIPanel extends Composite implements HasText {
 			this.appendTableOpen(sb, "table");
 			this.appendTHeadOpen(sb, "thead-dark");
 			this.appendTrOpen(sb, "even");
-			this.appendTHeader(sb, "ID");
-			this.appendTHeader(sb, "Abbr");
+//			this.appendTHeader(sb, "ID");
+//			this.appendTHeader(sb, "Abbr");
 			this.appendTHeader(sb, "Chinese");
+			this.appendTHeader(sb, "Pinyin");
 			this.appendTHeader(sb, "English Literal");
 			this.appendTHeader(sb, "English Figurative");
-			this.appendTHeader(sb, "Pinyin");
 			this.appendTHeader(sb, "Example");
 			this.appendTHeader(sb, "Example Translation");
 			this.appendTHeader(sb, "Origin");

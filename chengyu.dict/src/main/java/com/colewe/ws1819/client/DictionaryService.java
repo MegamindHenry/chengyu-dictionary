@@ -18,6 +18,7 @@ public interface DictionaryService extends RemoteService{
 //	ArrayList<String[]> search();
 	
 	ArrayList<String[]> search(String target, int mode);
+	ArrayList<String[]> tagSearch(String tagID);
 
 
 }

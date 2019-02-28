@@ -32,6 +32,7 @@
 					<g:TextBox	ui:field="inputTextBox"></g:TextBox>
 					<div></div>
 					<b:Button	ui:field="searchButton"></b:Button>
+					<b:Button ui:field="tagButton"></b:Button>
 				</div>
 		
 				<div class="advanced-search-group">

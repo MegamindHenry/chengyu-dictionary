@@ -16,5 +16,7 @@ public interface DictionaryServiceAsync{
 //	void search(AsyncCallback<ArrayList<String[]>> callback);
 	
 	void search(String target, int mode, AsyncCallback<ArrayList<String[]>> callback);
+	
+	void tagSearch(String tagID, AsyncCallback<ArrayList<String[]>> callback);
 
 }
