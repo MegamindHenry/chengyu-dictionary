@@ -65,19 +65,39 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			
 			switch(mode) {
 				case 1:
-					stmt = conn.prepareStatement("select * from Chengyu where Chinese like ?");
+					stmt = conn.prepareStatement("select * from Chengyu as c "
+							+ "left join ChengyuTag as ct "
+							+ "on ct.ChengyuID = c.ID "
+							+ "left join Tags as t "
+							+ "on t.ID = ct.TagID "
+							+ "where Chinese like ?");
 					stmt.setString(1, "%" + target + "%");
 					break;
 				case 2:
-					stmt = conn.prepareStatement("select * from Chengyu where Pinyin like ?");
+					stmt = conn.prepareStatement("select * from Chengyu as c "
+							+ "left join ChengyuTag as ct "
+							+ "on ct.ChengyuID = c.ID "
+							+ "left join Tags as t "
+							+ "on t.ID = ct.TagID "
+							+ "where Pinyin like ?");
 					stmt.setString(1, "%" + target + "%");
 					break;
 				case 3:
-					stmt = conn.prepareStatement("select * from Chengyu where EnglishLiteral like ?");
+					stmt = conn.prepareStatement("select * from Chengyu as c"
+							+ "left join ChengyuTag as ct "
+							+ "on ct.ChengyuID = c.ID "
+							+ "left join Tags as t "
+							+ "on t.ID = ct.TagID "
+							+ "where EnglishLiteral like ?");
 					stmt.setString(1, "%" + target + "%");
 					break;
 				default:
-					stmt = conn.prepareStatement("select * from Chengyu where Chinese like ?");
+					stmt = conn.prepareStatement("select * from Chengyu as c"
+							+ "left join ChengyuTag as ct "
+							+ "on ct.ChengyuID = c.ID "
+							+ "left join Tags as t "
+							+ "on t.ID = ct.TagID "
+							+ "where Chinese like ?");
 					stmt.setString(1, "%" + target + "%");
 					break;
 			}
@@ -86,8 +106,8 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			
 			while (rs.next()) {
 				String[] str = {
-						rs.getString("ID"),
-						rs.getString("Abbr"),
+//						rs.getString("ID"),
+//						rs.getString("Abbr"),
 						rs.getString("Chinese"),
 						rs.getString("EnglishLiteral"),
 						rs.getString("EnglishFigurative"),
@@ -96,7 +116,8 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 						rs.getString("ExampleTranslation"),
 						rs.getString("Origin"),
 						rs.getString("OriginTranslation"),
-						rs.getString("Frequency")};
+						rs.getString("Frequency"),
+						rs.getString("Tag")};
 				result.add(str);
 			}
 			
@@ -128,10 +149,10 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			
 			ResultSet rs;
 			
-			stmt = conn.prepareStatement("select * from ChengyuTag as ct " + 
-					"inner join Chengyu as c " + 
+			stmt = conn.prepareStatement("select * from Chengyu as c " + 
+					"left join ChengyuTag as ct " + 
 					"on c.ID = ct.ChengyuID " + 
-					"inner join Tags as t " + 
+					"left join Tags as t " + 
 					"on t.ID = ct.TagID " + 
 					"where ct.TagID = ?");
 			stmt.setString(1, tagID);
@@ -140,8 +161,8 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			
 			while (rs.next()) {
 				String[] str = {
-						rs.getString("ID"),
-						rs.getString("Abbr"),
+//						rs.getString("ID"),
+//						rs.getString("Abbr"),
 						rs.getString("Chinese"),
 						rs.getString("EnglishLiteral"),
 						rs.getString("EnglishFigurative"),

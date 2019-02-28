@@ -180,6 +180,7 @@ public class UIPanel extends Composite implements HasText {
 			this.appendTHeader(sb, "Origin");
 			this.appendTHeader(sb, "Origin Translation");
 			this.appendTHeader(sb, "Frequency");
+			this.appendTHeader(sb, "Tag");
 			this.appendTrClose(sb);
 			this.appendTHeadClose(sb);
 			this.appendTBodyOpen(sb);
