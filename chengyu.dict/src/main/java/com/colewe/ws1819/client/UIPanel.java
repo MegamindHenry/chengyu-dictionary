@@ -166,32 +166,33 @@ public class UIPanel extends Composite implements HasText {
 		
 		public OutputTableBuilder(ArrayList<String[]> results) {
 			sb = new StringBuilder("");
-			this.appendTableOpen(sb, "table");
-			this.appendTHeadOpen(sb, "thead-dark");
-			this.appendTrOpen(sb, "even");
-//			this.appendTHeader(sb, "ID");
-//			this.appendTHeader(sb, "Abbr");
-			this.appendTHeader(sb, "Chinese");
-			this.appendTHeader(sb, "Pinyin");
-			this.appendTHeader(sb, "English Literal");
-			this.appendTHeader(sb, "English Figurative");
-			this.appendTHeader(sb, "Example");
-			this.appendTHeader(sb, "Example Translation");
-			this.appendTHeader(sb, "Origin");
-			this.appendTHeader(sb, "Origin Translation");
-			this.appendTHeader(sb, "Frequency");
-			this.appendTHeader(sb, "Tag");
-			this.appendTrClose(sb);
-			this.appendTHeadClose(sb);
-			this.appendTBodyOpen(sb);
+			
+			this.appendHTMLTagOpen(sb, "table");
+			this.appendHTMLTagOpen(sb, "thead");
+			this.appendHTMLTagOpen(sb, "tr");
+			
+			this.appendHTMLTag(sb, "th", "Chinese");
+			this.appendHTMLTag(sb, "th", "Pinyin");
+			this.appendHTMLTag(sb, "th", "English Literal");
+			this.appendHTMLTag(sb, "th", "English Figurative");
+			this.appendHTMLTag(sb, "th", "Example");
+			this.appendHTMLTag(sb, "th", "Example Translation");
+			this.appendHTMLTag(sb, "th", "Origin");
+			this.appendHTMLTag(sb, "th", "Origin Translation");
+			this.appendHTMLTag(sb, "th", "Frequency");
+			this.appendHTMLTag(sb, "th", "Tag");
+			
+			this.appendHTMLTagClose(sb, "tr");
+			this.appendHTMLTagClose(sb, "thead");
+			this.appendHTMLTagOpen(sb, "tbody");
 			
 			for(String[] result: results) {
-				this.appendTrOpen(sb);
+				this.appendHTMLTagOpen(sb, "tr");
 				this.appendTEntries(sb, result);
-				this.appendTrClose(sb);
+				this.appendHTMLTagClose(sb, "tr");
 			}
-			this.appendTBodyClose(sb);
-			this.appendTableClose(sb);
+			this.appendHTMLTagClose(sb, "tbody");
+			this.appendHTMLTagClose(sb, "table");
 		}
 		
 		private String toHTML() {
@@ -211,79 +212,16 @@ public class UIPanel extends Composite implements HasText {
 			sb.append("</").append(tag).append(">"); // closing tag
 		}
 		
-		private void appendTableOpen(StringBuilder sb) {
-			sb.append("<table>");
+		private void appendHTMLTagOpen(StringBuilder sb, String tag) {
+			sb.append("<").append(tag).append(">");
 		}
 		
-		private void appendTableOpen(StringBuilder sb, String cssClass) {
-			sb.append("<table class=\"" + cssClass + "\">");
+		private void appendHTMLTagOpen(StringBuilder sb, String tag, String cssClass) {
+			sb.append("<").append(tag).append(" class=\"").append(cssClass).append("\">");
 		}
 		
-		private void appendTableClose(StringBuilder sb) {
-			sb.append("</table>");
-		}
-		
-		private void appendTrOpen(StringBuilder sb) {
-			sb.append("<tr>");
-		}
-		
-		private void appendTrOpen(StringBuilder sb, String cssClass) {
-			sb.append("<tr class=\"" + cssClass + "\">");
-		}
-		
-		private void appendTrClose(StringBuilder sb) {
-			sb.append("</tr>");
-		}
-		private void appendTHeadOpen(StringBuilder sb) {
-			sb.append("<thead>");
-		}
-		
-		private void appendTHeadOpen(StringBuilder sb, String cssClass) {
-			sb.append("<thead class=\"" + cssClass + "\">");
-		}
-		
-		private void appendTHeadClose(StringBuilder sb) {
-			sb.append("</thead>");
-		}
-		
-		private void appendTBodyOpen(StringBuilder sb) {
-			sb.append("<tbody>");
-		}
-		
-		private void appendTBodyClose(StringBuilder sb) {
-			sb.append("</tbody>");
-		}
-		
-		private void appendTdOpen(StringBuilder sb) {
-			sb.append("<td>");
-		}
-		
-		private void appendTdOpen(StringBuilder sb, String cssClass) {
-			sb.append("<td class=\"" + cssClass + "\">");
-		}
-		
-		private void appendTdClose(StringBuilder sb) {
-			sb.append("</td>");
-		}
-		
-		private void appendThOpen(StringBuilder sb) {
-			sb.append("<th>");
-		}
-		
-		private void appendThOpen(StringBuilder sb, String cssClass) {
-			sb.append("<th class=\"" + cssClass + "\">");
-		}
-		
-		private void appendThClose(StringBuilder sb) {
-			sb.append("</th>");
-		}
-		
-		private void appendTHeader(StringBuilder sb, String head) {
-			this.appendHTMLTag(sb,"th",head);
-		}
-		
-		private void appendTHeader(StringBuilder sb, String head, String cssClass) {
-			this.appendHTMLTag(sb,"th",head, cssClass);
+		private void appendHTMLTagClose(StringBuilder sb, String tag) {
+			sb.append("</").append(tag).append(">");
 		}
 		
 		private void appendTEntries(StringBuilder sb, String[] result) {
