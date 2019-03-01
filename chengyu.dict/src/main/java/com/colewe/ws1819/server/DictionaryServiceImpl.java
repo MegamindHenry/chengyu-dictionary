@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 import com.colewe.ws1819.client.DictionaryService;
+import com.colewe.ws1819.shared.Entry;
 
 /**
  * this service works with dictionary function
@@ -51,10 +52,10 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 	 * @author Xuefeng and Jingwen
 	 */
 	@Override
-	public ArrayList<String[]> search(String target, int mode) {
+	public ArrayList<Entry> search(String target, int mode) {
 		//doing the search
 		
-		ArrayList<String[]> result = new ArrayList<>();
+		ArrayList<Entry> result = new ArrayList<Entry>();
 		Connection conn;
 		PreparedStatement stmt = null;
 		
@@ -105,20 +106,12 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				String[] str = {
-//						rs.getString("ID"),
-//						rs.getString("Abbr"),
-						rs.getString("Chinese"),
-						rs.getString("EnglishLiteral"),
-						rs.getString("EnglishFigurative"),
-						rs.getString("Pinyin"),
-						rs.getString("Example"),
-						rs.getString("ExampleTranslation"),
-						rs.getString("Origin"),
-						rs.getString("OriginTranslation"),
-						rs.getString("Frequency"),
-						rs.getString("Tag")};
-				result.add(str);
+				Entry entry = new Entry(rs.getString("ID"), rs.getString("Abbr"), rs.getString("Chinese"),
+						rs.getString("EnglishLiteral"), rs.getString("EnglishFigurative"), rs.getString("Pinyin"),
+						rs.getString("Example"), rs.getString("ExampleTranslation"), rs.getString("Origin"),
+						rs.getString("OriginTranslation"), rs.getString("Frequency"));
+						
+				result.add(entry);
 			}
 			
 		}catch(SQLException e) {
@@ -137,10 +130,10 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 	 * @author Xuefeng and Jingwen
 	 */
 	@Override
-	public ArrayList<String[]> tagSearch(String tagID) {
+	public ArrayList<Entry> tagSearch(String tagID) {
 		//doing the search
 		
-		ArrayList<String[]> result = new ArrayList<>();
+		ArrayList<Entry> result = new ArrayList<>();
 		Connection conn;
 		PreparedStatement stmt = null;
 		
@@ -160,21 +153,12 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				String[] str = {
-//						rs.getString("ID"),
-//						rs.getString("Abbr"),
-						rs.getString("Chinese"),
-						rs.getString("EnglishLiteral"),
-						rs.getString("EnglishFigurative"),
-						rs.getString("Pinyin"),
-						rs.getString("Example"),
-						rs.getString("ExampleTranslation"),
-						rs.getString("Origin"),
-						rs.getString("OriginTranslation"),
-						rs.getString("Frequency"),
-						rs.getString("Tag")};
+				Entry entry = new Entry(rs.getString("ID"), rs.getString("Abbr"), rs.getString("Chinese"),
+						rs.getString("EnglishLiteral"), rs.getString("EnglishFigurative"), rs.getString("Pinyin"),
+						rs.getString("Example"), rs.getString("ExampleTranslation"), rs.getString("Origin"),
+						rs.getString("OriginTranslation"), rs.getString("Frequency"));
 						
-				result.add(str);
+				result.add(entry);
 			}
 			
 		}catch(SQLException e) {

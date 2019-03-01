@@ -3,6 +3,7 @@
  */
 package com.colewe.ws1819.client;
 
+import com.colewe.ws1819.shared.Entry;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -152,7 +153,7 @@ public class UIPanel extends Composite implements HasText {
 		
 	}
 	
-	public void updateResult(ArrayList<String[]> results) {
+	public void updateResult(ArrayList<Entry> results) {
 		OutputTableBuilder otb = new OutputTableBuilder(results);
 		outputHTML.setHTML(otb.toHTML());
 	}
@@ -164,7 +165,7 @@ public class UIPanel extends Composite implements HasText {
 		public OutputTableBuilder() {
 		}
 		
-		public OutputTableBuilder(ArrayList<String[]> results) {
+		public OutputTableBuilder(ArrayList<Entry> results) {
 			sb = new StringBuilder("");
 			
 			this.appendHTMLTagOpen(sb, "table");
@@ -186,9 +187,23 @@ public class UIPanel extends Composite implements HasText {
 			this.appendHTMLTagClose(sb, "thead");
 			this.appendHTMLTagOpen(sb, "tbody");
 			
-			for(String[] result: results) {
+//			for(String[] result: results) {
+//				this.appendHTMLTagOpen(sb, "tr");
+//				this.appendTEntries(sb, result);
+//				this.appendHTMLTagClose(sb, "tr");
+//			}
+			
+			for(Entry entry: results) {
 				this.appendHTMLTagOpen(sb, "tr");
-				this.appendTEntries(sb, result);
+				this.appendHTMLTag(sb, "td", entry.getChinese());
+				this.appendHTMLTag(sb, "td", entry.getEnglishLiteral());
+				this.appendHTMLTag(sb, "td", entry.getEnglishFigurative());
+				this.appendHTMLTag(sb, "td", entry.getPinyin());
+				this.appendHTMLTag(sb, "td", entry.getExample());
+				this.appendHTMLTag(sb, "td", entry.getExampleTranslation());
+				this.appendHTMLTag(sb, "td", entry.getOrigin());
+				this.appendHTMLTag(sb, "td", entry.getOrignTranslation());
+				this.appendHTMLTag(sb, "td", entry.getFrequency());
 				this.appendHTMLTagClose(sb, "tr");
 			}
 			this.appendHTMLTagClose(sb, "tbody");
@@ -226,6 +241,9 @@ public class UIPanel extends Composite implements HasText {
 		
 		private void appendTEntries(StringBuilder sb, String[] result) {
 			for(String data: result) {
+				
+				data += "<span class=\"badge\">4</span>";
+				
 				this.appendHTMLTag(sb, "td", data);
 			}
 		}

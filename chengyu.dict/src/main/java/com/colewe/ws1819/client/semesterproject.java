@@ -2,6 +2,7 @@ package com.colewe.ws1819.client;
 
 import java.util.ArrayList;
 
+import com.colewe.ws1819.shared.Entry;
 import com.colewe.ws1819.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -56,7 +57,7 @@ public class semesterproject implements EntryPoint {
 				}
 				int mode = uiPanel.mode;
 				
-				AsyncCallback<ArrayList<String[]>> callback = new AsyncCallback<ArrayList<String[]>>() {
+				AsyncCallback<ArrayList<Entry>> callback = new AsyncCallback<ArrayList<Entry>>() {
 
 					@Override
 					public void onFailure(
@@ -68,9 +69,10 @@ public class semesterproject implements EntryPoint {
 
 					@Override
 					public void onSuccess(
-							ArrayList<String[]> results) {
+							ArrayList<Entry> results) {
 						// TODO Auto-generated method stub
 //						uiPanel.outputHTML.updateOutput(result, target, highlight, reverse);
+//						uiPanel.updateResult(results);
 						uiPanel.updateResult(results);
 					}
 				    
@@ -92,7 +94,7 @@ public class semesterproject implements EntryPoint {
 				}
 				int mode = uiPanel.mode;
 				
-				AsyncCallback<ArrayList<String[]>> callback = new AsyncCallback<ArrayList<String[]>>() {
+				AsyncCallback<ArrayList<Entry>> callback = new AsyncCallback<ArrayList<Entry>>() {
 
 					@Override
 					public void onFailure(
@@ -104,7 +106,7 @@ public class semesterproject implements EntryPoint {
 
 					@Override
 					public void onSuccess(
-							ArrayList<String[]> results) {
+							ArrayList<Entry> results) {
 						// TODO Auto-generated method stub
 //						uiPanel.outputHTML.updateOutput(result, target, highlight, reverse);
 						uiPanel.updateResult(results);

@@ -5,6 +5,7 @@ package com.colewe.ws1819.client;
 
 import java.util.ArrayList;
 
+import com.colewe.ws1819.shared.Entry;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
@@ -17,8 +18,8 @@ public interface DictionaryService extends RemoteService{
 	
 //	ArrayList<String[]> search();
 	
-	ArrayList<String[]> search(String target, int mode);
-	ArrayList<String[]> tagSearch(String tagID);
+	ArrayList<Entry> search(String target, int mode);
+	ArrayList<Entry> tagSearch(String tagID);
 
 
 }
