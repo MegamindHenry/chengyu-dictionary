@@ -95,6 +95,28 @@ public class Entry implements Serializable, Comparable<Entry> {
 	public ArrayList<String> getTags() {
 		return this.tags;
 	}
+	public boolean hasTags() {
+		if(this.tags.size() == 0) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public String toString() {
+		String output = "";
+		
+		output += this.id + "\t";
+		output += this.abbr + "\t";
+		output += this.chinese + "\t";
+		output += this.tags.size() + "\t";
+		
+		for(String tag: this.tags) {
+			output += tag + "\t";
+		}
+		
+		return output;
+	}
 
 	@Override
 	public int compareTo(Entry o) {

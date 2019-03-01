@@ -195,15 +195,38 @@ public class UIPanel extends Composite implements HasText {
 			
 			for(Entry entry: results) {
 				this.appendHTMLTagOpen(sb, "tr");
-				this.appendHTMLTag(sb, "td", entry.getChinese());
-				this.appendHTMLTag(sb, "td", entry.getEnglishLiteral());
-				this.appendHTMLTag(sb, "td", entry.getEnglishFigurative());
-				this.appendHTMLTag(sb, "td", entry.getPinyin());
-				this.appendHTMLTag(sb, "td", entry.getExample());
-				this.appendHTMLTag(sb, "td", entry.getExampleTranslation());
-				this.appendHTMLTag(sb, "td", entry.getOrigin());
-				this.appendHTMLTag(sb, "td", entry.getOrignTranslation());
-				this.appendHTMLTag(sb, "td", entry.getFrequency());
+				this.appendHTMLTagOpen(sb, "td");
+				this.appendHTMLTag(sb, "label", entry.getChinese());
+				
+				if(entry.hasTags()) {
+					for(String tag: entry.getTags()) {
+						this.appendHTMLTag(sb, "badge", tag, "badge");
+					}
+				}
+				
+				
+				
+				this.appendHTMLTagClose(sb, "td");
+				
+				
+//				this.appendHTMLTag(sb, "td", entry.getChinese());
+//				this.appendHTMLTag(sb, "td", entry.getEnglishLiteral());
+//				this.appendHTMLTag(sb, "td", entry.getEnglishFigurative());
+//				this.appendHTMLTag(sb, "td", entry.getPinyin());
+//				this.appendHTMLTag(sb, "td", entry.getExample());
+//				this.appendHTMLTag(sb, "td", entry.getExampleTranslation());
+//				this.appendHTMLTag(sb, "td", entry.getOrigin());
+//				this.appendHTMLTag(sb, "td", entry.getOrignTranslation());
+//				this.appendHTMLTag(sb, "td", entry.getFrequency());
+				this.appendHTMLTag(sb, "td", entry.toString());
+				
+				
+				this.appendHTMLTag(sb, "td", String.valueOf(results.contains(entry)));
+				
+				
+//				this.appendHTMLTagOpen(sb, "td");
+//				this.appendHTMLTag(sb, "badge", "negative", "badge");
+//				this.appendHTMLTagClose(sb, "td");
 				this.appendHTMLTagClose(sb, "tr");
 			}
 			this.appendHTMLTagClose(sb, "tbody");
