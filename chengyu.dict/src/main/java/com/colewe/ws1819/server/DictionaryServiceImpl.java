@@ -157,8 +157,10 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 						rs.getString("EnglishLiteral"), rs.getString("EnglishFigurative"), rs.getString("Pinyin"),
 						rs.getString("Example"), rs.getString("ExampleTranslation"), rs.getString("Origin"),
 						rs.getString("OriginTranslation"), rs.getString("Frequency"));
-						
-				result.add(entry);
+				
+				if(!result.contains(entry)) {
+					result.add(entry);
+				}
 			}
 			
 		}catch(SQLException e) {
