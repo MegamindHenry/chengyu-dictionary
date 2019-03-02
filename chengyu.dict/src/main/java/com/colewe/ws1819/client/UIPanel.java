@@ -220,9 +220,11 @@ public class UIPanel extends Composite implements HasText {
 //				this.appendHTMLTag(sb, "td", entry.getFrequency());
 				this.appendHTMLTag(sb, "td", entry.toString());
 				
+				Entry newEntry = new Entry("9833", "", "", "", "", "", "", "", "", "", "");
 				
-				this.appendHTMLTag(sb, "td", String.valueOf(results.contains(entry)));
 				
+				this.appendHTMLTag(sb, "td", String.valueOf(results.contains(newEntry)));
+				this.appendHTMLTag(sb, "td", String.valueOf(entry.equals(newEntry)));
 				
 //				this.appendHTMLTagOpen(sb, "td");
 //				this.appendHTMLTag(sb, "badge", "negative", "badge");

@@ -3,7 +3,7 @@ package com.colewe.ws1819.shared;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Entry implements Serializable, Comparable<Entry> {
+public class Entry implements Serializable{
 	String id;
 	String abbr;
 	String chinese;
@@ -119,8 +119,27 @@ public class Entry implements Serializable, Comparable<Entry> {
 	}
 
 	@Override
-	public int compareTo(Entry o) {
-		return o.id.compareTo(this.id);
-	}
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (!Entry.class.isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+
+        final Entry other = (Entry)obj;
+
+        if (this.id != other.id) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.id.hashCode();
+    }
 	
 }
