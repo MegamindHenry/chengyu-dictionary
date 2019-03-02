@@ -124,7 +124,7 @@ public class Entry implements Serializable{
             return false;
         }
 
-        if (!Entry.class.isAssignableFrom(obj.getClass())) {
+        if (!(this.getClass() == obj.getClass())) {
             return false;
         }
 

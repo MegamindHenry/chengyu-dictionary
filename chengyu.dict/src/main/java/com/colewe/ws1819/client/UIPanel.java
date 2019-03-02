@@ -177,58 +177,31 @@ public class UIPanel extends Composite implements HasText {
 			this.appendHTMLTag(sb, "th", "English Literal");
 			this.appendHTMLTag(sb, "th", "English Figurative");
 			this.appendHTMLTag(sb, "th", "Example");
-			this.appendHTMLTag(sb, "th", "Example Translation");
+//			this.appendHTMLTag(sb, "th", "Example Translation");
 			this.appendHTMLTag(sb, "th", "Origin");
-			this.appendHTMLTag(sb, "th", "Origin Translation");
+//			this.appendHTMLTag(sb, "th", "Origin Translation");
 			this.appendHTMLTag(sb, "th", "Frequency");
-			this.appendHTMLTag(sb, "th", "Tag");
-			
 			this.appendHTMLTagClose(sb, "tr");
 			this.appendHTMLTagClose(sb, "thead");
 			this.appendHTMLTagOpen(sb, "tbody");
-			
-//			for(String[] result: results) {
-//				this.appendHTMLTagOpen(sb, "tr");
-//				this.appendTEntries(sb, result);
-//				this.appendHTMLTagClose(sb, "tr");
-//			}
-			
 			for(Entry entry: results) {
 				this.appendHTMLTagOpen(sb, "tr");
 				this.appendHTMLTagOpen(sb, "td");
 				this.appendHTMLTag(sb, "label", entry.getChinese());
-				
 				if(entry.hasTags()) {
 					for(String tag: entry.getTags()) {
 						this.appendHTMLTag(sb, "badge", tag, "badge");
 					}
 				}
-				
-				
-				
 				this.appendHTMLTagClose(sb, "td");
-				
-				
-//				this.appendHTMLTag(sb, "td", entry.getChinese());
-//				this.appendHTMLTag(sb, "td", entry.getEnglishLiteral());
-//				this.appendHTMLTag(sb, "td", entry.getEnglishFigurative());
-//				this.appendHTMLTag(sb, "td", entry.getPinyin());
-//				this.appendHTMLTag(sb, "td", entry.getExample());
+				this.appendHTMLTag(sb, "td", entry.getPinyin());
+				this.appendHTMLTag(sb, "td", entry.getEnglishLiteral());
+				this.appendHTMLTag(sb, "td", entry.getEnglishFigurative());
+				this.appendHTMLTag(sb, "td", entry.getExample());
 //				this.appendHTMLTag(sb, "td", entry.getExampleTranslation());
-//				this.appendHTMLTag(sb, "td", entry.getOrigin());
+				this.appendHTMLTag(sb, "td", entry.getOrigin());
 //				this.appendHTMLTag(sb, "td", entry.getOrignTranslation());
-//				this.appendHTMLTag(sb, "td", entry.getFrequency());
-				this.appendHTMLTag(sb, "td", entry.toString());
-				
-				Entry newEntry = new Entry("9833", "", "", "", "", "", "", "", "", "", "");
-				
-				
-				this.appendHTMLTag(sb, "td", String.valueOf(results.contains(newEntry)));
-				this.appendHTMLTag(sb, "td", String.valueOf(entry.equals(newEntry)));
-				
-//				this.appendHTMLTagOpen(sb, "td");
-//				this.appendHTMLTag(sb, "badge", "negative", "badge");
-//				this.appendHTMLTagClose(sb, "td");
+				this.appendHTMLTag(sb, "td", entry.getFrequency());
 				this.appendHTMLTagClose(sb, "tr");
 			}
 			this.appendHTMLTagClose(sb, "tbody");
