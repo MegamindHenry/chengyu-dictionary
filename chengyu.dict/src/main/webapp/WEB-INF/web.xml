@@ -16,6 +16,15 @@
     <url-pattern>/semesterproject/dictionary</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>downloadServlet</servlet-name>
+    <servlet-class>com.colewe.ws1819.server.DownloadServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>downloadServlet</servlet-name>
+    <url-pattern>/semesterproject/download</url-pattern>
+  </servlet-mapping>
   
 
   <!-- Default page to serve -->
