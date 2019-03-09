@@ -141,5 +141,15 @@ public class Entry implements Serializable{
     public int hashCode() {
         return this.id.hashCode();
     }
+    
+    public boolean hasTags(ArrayList<String> tags) {
+    	for(String tag: tags) {
+    		if(!this.tags.contains(tag)) {
+    			return false;
+    		}
+    	}
+    	
+    	return true;
+    }
 	
 }

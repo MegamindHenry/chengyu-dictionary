@@ -112,10 +112,12 @@ public class semesterproject implements EntryPoint {
 						uiPanel.updateResult(results);
 					}
 				    
-				  };
+			  	};
 				
-				
-				  dictionarySvc.tagSearch("21", callback);
+				ArrayList<String> tags = new ArrayList<String>();
+				tags.add("2");
+				tags.add("21");
+			  	dictionarySvc.tagSearch("万", 1, tags, callback);
 				
 			}
 		};

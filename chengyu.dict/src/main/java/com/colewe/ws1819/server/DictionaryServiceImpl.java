@@ -155,6 +155,67 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 		return result;
 	}
 	
+//	/**
+//	 * search function for dictionary
+//	 * 
+//	 * @param
+//	 * @author Xuefeng and Jingwen
+//	 */
+//	@Override
+//	public ArrayList<Entry> tagSearch(String tagID) {
+//		//doing the search
+//		
+//		ArrayList<Entry> result = new ArrayList<>();
+//		Connection conn;
+//		PreparedStatement stmt = null;
+//		
+//		try {
+//			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+//			
+//			ResultSet rs;
+//			
+//			stmt = conn.prepareStatement("select * from Chengyu as c " + 
+//					"left join ChengyuTag as ct " + 
+//					"on c.ID = ct.ChengyuID " + 
+//					"left join Tags as t " + 
+//					"on t.ID = ct.TagID " + 
+//					"where ct.TagID = ?");
+//			stmt.setString(1, tagID);
+//			
+//			rs = stmt.executeQuery();
+//			
+//			while (rs.next()) {
+//				String tag = rs.getString("Tag");
+//				
+//				Entry entry = new Entry(rs.getString("ID"), rs.getString("Abbr"), rs.getString("Chinese"),
+//						rs.getString("EnglishLiteral"), rs.getString("EnglishFigurative"), rs.getString("Pinyin"),
+//						rs.getString("Example"), rs.getString("ExampleTranslation"), rs.getString("Origin"),
+//						rs.getString("OriginTranslation"), rs.getString("Frequency"));
+//				
+//				if(result.contains(entry)) {
+//					entry = result.get(result.indexOf(entry));
+//					if(tag != null) {
+//						entry.addTag(tag);
+//					}
+//				}else {
+//					if(tag != null) {
+//						entry.addTag(tag);
+//					}
+//					result.add(entry);
+//				}
+//				
+//				
+//			}
+//			
+//		}catch(SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		//return a result in a Arraylist with dictionaryentry
+//		return result;
+//	}
+	
 	/**
 	 * search function for dictionary
 	 * 
@@ -162,10 +223,10 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 	 * @author Xuefeng and Jingwen
 	 */
 	@Override
-	public ArrayList<Entry> tagSearch(String tagID) {
+	public ArrayList<Entry> tagSearch(String target, int mode, ArrayList<String> tags) {
 		//doing the search
 		
-		ArrayList<Entry> result = new ArrayList<>();
+		ArrayList<Entry> result = new ArrayList<Entry>();
 		Connection conn;
 		PreparedStatement stmt = null;
 		
@@ -174,13 +235,44 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			
 			ResultSet rs;
 			
-			stmt = conn.prepareStatement("select * from Chengyu as c " + 
-					"left join ChengyuTag as ct " + 
-					"on c.ID = ct.ChengyuID " + 
-					"left join Tags as t " + 
-					"on t.ID = ct.TagID " + 
-					"where ct.TagID = ?");
-			stmt.setString(1, tagID);
+			switch(mode) {
+				case 1:
+					stmt = conn.prepareStatement("select * from Chengyu as c "
+							+ "left join ChengyuTag as ct "
+							+ "on ct.ChengyuID = c.ID "
+							+ "left join Tags as t "
+							+ "on t.ID = ct.TagID "
+							+ "where Chinese like ?");
+					stmt.setString(1, "%" + target + "%");
+					break;
+				case 2:
+					stmt = conn.prepareStatement("select * from Chengyu as c "
+							+ "left join ChengyuTag as ct "
+							+ "on ct.ChengyuID = c.ID "
+							+ "left join Tags as t "
+							+ "on t.ID = ct.TagID "
+							+ "where Pinyin like ?");
+					stmt.setString(1, "%" + target + "%");
+					break;
+				case 3:
+					stmt = conn.prepareStatement("select * from Chengyu as c"
+							+ "left join ChengyuTag as ct "
+							+ "on ct.ChengyuID = c.ID "
+							+ "left join Tags as t "
+							+ "on t.ID = ct.TagID "
+							+ "where EnglishLiteral like ?");
+					stmt.setString(1, "%" + target + "%");
+					break;
+				default:
+					stmt = conn.prepareStatement("select * from Chengyu as c"
+							+ "left join ChengyuTag as ct "
+							+ "on ct.ChengyuID = c.ID "
+							+ "left join Tags as t "
+							+ "on t.ID = ct.TagID "
+							+ "where Chinese like ?");
+					stmt.setString(1, "%" + target + "%");
+					break;
+			}
 			
 			rs = stmt.executeQuery();
 			
@@ -191,19 +283,37 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 						rs.getString("EnglishLiteral"), rs.getString("EnglishFigurative"), rs.getString("Pinyin"),
 						rs.getString("Example"), rs.getString("ExampleTranslation"), rs.getString("Origin"),
 						rs.getString("OriginTranslation"), rs.getString("Frequency"));
+						
+//				if(result.contains(entry)) {
+//					entry = result.get(result.indexOf(entry));
+//					if(tag != null) {
+//						entry.addTag(tag);
+//					}
+//				}else {
+//					if(tag != null) {
+//						entry.addTag(tag);
+//					}
+//					result.add(entry);
+//				}
 				
-				if(result.contains(entry)) {
-					entry = result.get(result.indexOf(entry));
-					if(tag != null) {
-						entry.addTag(tag);
+				boolean found = false;
+				for(int i=0; i<result.size();i++) {
+					Entry eachEntry = result.get(i);
+					if (eachEntry.getId().equals(rs.getString("ID"))) {
+						if(tag != null) {
+							eachEntry.addTag(tag);
+						}
+						found = true;
+						break;
 					}
-				}else {
+				}
+				
+				if(!found) {
 					if(tag != null) {
 						entry.addTag(tag);
 					}
 					result.add(entry);
 				}
-				
 				
 			}
 			
