@@ -119,9 +119,30 @@ public class semesterproject implements EntryPoint {
 				
 			}
 		};
+		
+		ClickHandler download = new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent event) {
+				// TODO Auto-generated method stub
+				String target = uiPanel.inputTextBox.getText();
+				if (!FieldVerifier.isValidInput(target)) {
+					Window.alert("Please enter the string you want to search");
+					return;
+				}
+				int mode = uiPanel.mode;
+				
+				String newUrl = "semesterproject/download?target="
+				+ target + "&mode=" + String.valueOf(mode);
+//				String newUrl = "https://www.google.com";
+				
+				Window.Location.replace(newUrl);
+			}
+		};
 	  
 	  
 	  uiPanel.searchButton.addClickHandler(searchCH);
 	  uiPanel.tagButton.addClickHandler(searchTag);
+	  uiPanel.downloadButton.addClickHandler(download);
   }
 }

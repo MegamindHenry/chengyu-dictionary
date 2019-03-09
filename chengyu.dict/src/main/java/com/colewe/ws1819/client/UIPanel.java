@@ -57,6 +57,8 @@ public class UIPanel extends Composite implements HasText {
 	HTML outputHTML;
 	@UiField
 	Button tagButton;
+	@UiField
+	Button downloadButton;
 	
 	int mode = 1;
 
@@ -124,11 +126,13 @@ public class UIPanel extends Composite implements HasText {
 			
 		});
 		
-		searchButton.setText("search");
+		searchButton.setText("Search");
 		searchButton.addStyleName("btn btn-dark");
 		
-		tagButton.setText("tag");
+		tagButton.setText("Tag");
 		tagButton.addStyleName("btn btn-dark");
+		
+		downloadButton.setText("Download");
 		
 		filter.setVisible(true);
 		
