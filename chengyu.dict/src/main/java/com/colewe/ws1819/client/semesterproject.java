@@ -46,79 +46,31 @@ public class semesterproject implements EntryPoint {
   public void onModuleLoad() {
 	  UIPanel uiPanel = new UIPanel();
 	  RootPanel.get().add(uiPanel);
-	  
-	  ClickHandler searchCH = new ClickHandler() {
-			public void onClick(ClickEvent e) {
-				
-				String target = uiPanel.inputTextBox.getText();
-				if (!FieldVerifier.isValidInput(target)) {
-					Window.alert("Please enter the string you want to search");
-					return;
-				}
-				int mode = uiPanel.mode;
-				
-				AsyncCallback<ArrayList<Entry>> callback = new AsyncCallback<ArrayList<Entry>>() {
-
-					@Override
-					public void onFailure(
-							Throwable caught) {
-						// TODO Auto-generated method stub
-						Window.alert("Failure");
-						
-					}
-
-					@Override
-					public void onSuccess(
-							ArrayList<Entry> results) {
-						// TODO Auto-generated method stub
-//						uiPanel.outputHTML.updateOutput(result, target, highlight, reverse);
-//						uiPanel.updateResult(results);
-						uiPanel.updateResult(results);
-					}
-				    
-				  };
-				
-				
-				  dictionarySvc.search(target, mode, callback);
-				
-			}
-		};
 		
 		ClickHandler searchTag = new ClickHandler() {
 			public void onClick(ClickEvent e) {
-				
 				String target = uiPanel.inputTextBox.getText();
 				if (!FieldVerifier.isValidInput(target)) {
 					Window.alert("Please enter the string you want to search");
 					return;
 				}
 				int mode = uiPanel.mode;
-				
 				AsyncCallback<ArrayList<Entry>> callback = new AsyncCallback<ArrayList<Entry>>() {
 
 					@Override
 					public void onFailure(
 							Throwable caught) {
-						// TODO Auto-generated method stub
 						Window.alert("Failure");
-						
 					}
-
+					
 					@Override
 					public void onSuccess(
 							ArrayList<Entry> results) {
-						// TODO Auto-generated method stub
-//						uiPanel.outputHTML.updateOutput(result, target, highlight, reverse);
 						uiPanel.updateResult(results);
 					}
-				    
 			  	};
-				
-				ArrayList<String> tags = new ArrayList<String>();
-				tags.add("2");
-				tags.add("21");
-			  	dictionarySvc.tagSearch("万", 1, tags, callback);
-				
+				ArrayList<String> tags = uiPanel.getFilter();
+			  	dictionarySvc.tagSearch(target, mode, tags, callback);
 			}
 		};
 		
@@ -136,14 +88,12 @@ public class semesterproject implements EntryPoint {
 				
 				String newUrl = "semesterproject/download?target="
 				+ target + "&mode=" + String.valueOf(mode);
-//				String newUrl = "https://www.google.com";
 				
 				Window.Location.replace(newUrl);
 			}
 		};
 	  
-	  
-	  uiPanel.searchButton.addClickHandler(searchCH);
+	  uiPanel.searchButton.addClickHandler(searchTag);
 	  uiPanel.tagButton.addClickHandler(searchTag);
 	  uiPanel.downloadButton.addClickHandler(download);
   }

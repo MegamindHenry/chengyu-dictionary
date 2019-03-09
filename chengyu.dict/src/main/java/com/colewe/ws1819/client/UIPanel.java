@@ -18,12 +18,14 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasText;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.gwtbootstrap3.client.*;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.PanelGroup;
 import org.gwtbootstrap3.client.ui.RadioButton;
 import org.gwtbootstrap3.extras.select.client.ui.MultipleSelect;
+import org.gwtbootstrap3.extras.select.client.ui.Option;
 
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -140,6 +142,18 @@ public class UIPanel extends Composite implements HasText {
 		
 		inputTextBox.addStyleName("form-control");
 	}
+	
+	public ArrayList<String> getFilter() {
+		ArrayList<String> tagsFilter = new ArrayList<String>();
+		
+		List<Option> items = this.filter.getSelectedItems();
+		
+		for(Option item: items) {
+			tagsFilter.add(item.getValue());
+		}
+		
+		return tagsFilter;
+	}
 
 
 
@@ -206,6 +220,10 @@ public class UIPanel extends Composite implements HasText {
 				this.appendHTMLTag(sb, "td", entry.getOrigin());
 //				this.appendHTMLTag(sb, "td", entry.getOrignTranslation());
 				this.appendHTMLTag(sb, "td", entry.getFrequency());
+				
+//				ArrayList<String> tags = new ArrayList<String>();
+//				this.appendHTMLTag(sb, "td", entry.hasTags(tags));
+				
 				this.appendHTMLTagClose(sb, "tr");
 			}
 			this.appendHTMLTagClose(sb, "tbody");

@@ -227,6 +227,7 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 		//doing the search
 		
 		ArrayList<Entry> result = new ArrayList<Entry>();
+		ArrayList<Entry> tagResults = new ArrayList<Entry>();
 		Connection conn;
 		PreparedStatement stmt = null;
 		
@@ -283,18 +284,6 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 						rs.getString("EnglishLiteral"), rs.getString("EnglishFigurative"), rs.getString("Pinyin"),
 						rs.getString("Example"), rs.getString("ExampleTranslation"), rs.getString("Origin"),
 						rs.getString("OriginTranslation"), rs.getString("Frequency"));
-						
-//				if(result.contains(entry)) {
-//					entry = result.get(result.indexOf(entry));
-//					if(tag != null) {
-//						entry.addTag(tag);
-//					}
-//				}else {
-//					if(tag != null) {
-//						entry.addTag(tag);
-//					}
-//					result.add(entry);
-//				}
 				
 				boolean found = false;
 				for(int i=0; i<result.size();i++) {
@@ -321,8 +310,13 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 			e.printStackTrace();
 		}
 		
+		for(int i = 0; i < result.size(); i++) {
+			Entry eachEntry = result.get(i);
+			if (eachEntry.hasTags(tags)) {
+				tagResults.add(eachEntry);
+			}
+		}
 		
-		//return a result in a Arraylist with dictionaryentry
-		return result;
+		return tagResults;
 	}
 }

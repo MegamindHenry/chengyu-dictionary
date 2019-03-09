@@ -40,27 +40,25 @@
 					<b:Button ui:field="advancedOption">Advanced</b:Button>
 					<select:MultipleSelect ui:field="filter">
 						<select:OptGroup label="Character">
-							<select:Option text="Animals" value="1"/>
-							<select:Option text="Numbers" value="2"/>
-							<select:Option text="Body Part/Organ" value="3"/>
-							<select:Option text="Color" value="4"/>
-							<select:Option text="People" value="5"/>
-							<select:Option text="stub" value="6"/>
+							<select:Option text="Animals" value="Animals"/>
+							<select:Option text="Numbers" value="Numbers"/>
+							<select:Option text="Body Part/Organ" value="Organ"/>
+							<select:Option text="Color" value="Color"/>
+							<select:Option text="People" value="People"/>
 						</select:OptGroup>
 						<select:OptGroup label="Form">
-							<select:Option text="AABB" value="7"/>
-							<select:Option text="AXAY" value="8"/>
-							<select:Option text="XAYA" value="9"/>
-							<select:Option text="AAXY" value="10"/>
-							<select:Option text="XYAA" value="11"/>
+							<select:Option text="AABB" value="AABB"/>
+							<select:Option text="AXAY" value="AXAY"/>
+							<select:Option text="XAYA" value="XAYA"/>
+							<select:Option text="AAXY" value="AAXY"/>
+							<select:Option text="XYAA" value="XYAA"/>
 						</select:OptGroup>
 						<select:OptGroup label="Sense">
-							<select:Option text="Positive" value="12"/>
-							<select:Option text="Negative" value="13"/>
-							<select:Option text="Neutral" value="14"/>
-							<select:Option text="Story-based" value="15"/>
+							<select:Option text="Positive" value="Positive"/>
+							<select:Option text="Negative" value="Negative"/>
+							<select:Option text="Neutral" value="Neutral"/>
+							<select:Option text="Story-based" value="Story-based"/>
 						</select:OptGroup>
-							<select:Option text="Other tags to be added" value="16"/>
 					</select:MultipleSelect>
 				</div>
 			</form>
