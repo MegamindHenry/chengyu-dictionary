@@ -42,7 +42,15 @@
 
 \indent What could be improved given more time invested on the project. 
 
+\section{What Heitu wrote}
+\subsection{Search}
+\indent Initially, we have three search methods. There are three sections over the input box. Users can search by Chinese, Pinyin and English. Currently, searching by Chinese is perfect, but Pinyin and English are not supported fully. If a user searches by Pinyin, he could only search by one character. For example, ideally, "世外桃源" should be searched by "shi wai tao yuan" or a partial parten. However, it can be searched only by "shi" or "wai" or "tao" or "yuan". Moreover, the user could also search a chengdu while indicating its tags or domains. For example, when a user want to search "无" with only negative attitude, he can select "negative" tag under filter section. Then, all chengyus whcih contain charactor "无" will display in the display section. 
 
+\subsection{User Interface}
+\indent In total, we have three sections for our main page. First of all, our title section locate in the top middle. Below that, it is our search section where there are one input box, three navigate button, a dropdown selection box to select tags and two major button to either search a chengdu or download xml file. After that, we have one more section to display the search results. The results are displayed in a table where the columns contains Chinese, pinyin, figurative English translation, extended English meaning, example, example translation and frequency. Domains as known as tags, designed as badges, are attached at the beginning of each row.
+
+\subsection{Search Mechanism}
+\indent We split our search function into two parts. The initial search and tag-filter. In our initial search, we first decide which mode the user chose and pass target and mode variables to our search logic class. In this class, we already made SQL statement templates and insert variables into those statement and request database to search. After database returning back, we retrieve the data and pasre the data into an arraylist of Entries. Then, we used the pre-made function to filter the results and sent them to the front.
 
 \bibliographystyle{abbrv}
 \bibliography{refs}
