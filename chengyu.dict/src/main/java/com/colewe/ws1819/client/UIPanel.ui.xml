@@ -7,6 +7,18 @@
 	.important {
 		font-weight: bold;
 	}
+	table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 2px solid #FFFFFF;
+  		height: 200px;
+  		text-align: left;
+      }
+    th, td {
+		text-align: left;
+        border: 0.4px solid #ccc;
+        padding: 10px 7px;
+      }
 	</ui:style>
 	<g:HTMLPanel>
 		<!-- Add GWT widgets here. Enter < and hit Ctrl-Space to auto-complete 
