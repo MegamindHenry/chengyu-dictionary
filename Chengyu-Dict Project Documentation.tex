@@ -24,12 +24,15 @@ Section 2 talks about the existing tools and a paper on translating Chengyu into
 
 \section{Related Works}
 \indent **List related works here. For example existing online Chengyu dictionaries. A paper on translating Chengyu into English.**\\
-The following are existing tools that perform partially similar function of our web application:
+The following are existing tools that share similar functions with our web application:
 \begin{itemize}
 \item a Chengyu Dictionary provided by \textit{Chinese-Tools.com}\\
-Available at: https://www.chinese-tools.com/chinese/chengyu/dictionary
-\item Google-Translate for translating Chengyu
-\item a paper on translation of Chengyu into English
+Available at: https://www.chinese-tools.com/chinese/chengyu/dictionary\\
+Discussion:\\
+\item Google-Translate for translating Chengyu\\
+Discussion:\\
+\item a paper on translation of Chengyu into English\\
+Discussion:\\
 \end{itemize}
 
 \section{Project Dependencies}
@@ -42,28 +45,39 @@ A list of project dependencies used in this project (managed by Maven):
 \section{Method}
 \subsection{Pre-processing Steps}
 \indent Talk about selection of Corpora, sort by frequency etc.\\
+\indent OpenSubtitles: blah\\
+\indent Cross-reference with data from Github, order by frequency, first 150 entries are translated
 
 \subsection{Linguistic Problems}
 
 \indent blah.Talk about Chengyu and its status in Chinese. Talk about how the choice of corpora might have affected the frequency observed. Talk about translation difficulties.\\
+Chengyu and Chinese.\\
+Written language and spoken language differ, film language is more so. Film subtitles might subject to the limit of space and time, to use them in a somewhat unnatural way. One improvement to be made could be to incorporate different kinds of corpora. But then there is also a problem with time. Literature might be old and language might be archaic. In this sense, since film are rather recent, could be a good choice.\\
 
 \subsection{Lexicographic Decisions}
 
-\indent Blah blah.\\
+\indent How to organise the entries. What information to include. \\
 
-\subsection{System Architecture}
-
-\section{Intended User Experience}
+\section{Search Mechanism}
 
 \indent blah\\
 
-\section{Future Work}
+\section{User Interface}
+
+\indent blah. insert a screenshot. blah.\\
+
+\section{Division of Labor}
+
+\indent blah\\
+
+\section{Discussion and Future Work}
+\indent What we have accomplished with regard to the initial plan we set out. What didn't. I guess one thing is that we did not do the origin translation. Pinyin search.
 
 \indent What could be improved given more time invested on the project. 
 
 \section{What Heitu wrote}
 \subsection{Search}
-\indent Initially, we have three search methods. There are three sections over the input box. Users can search by Chinese, Pinyin and English. Currently, searching by Chinese is perfect, but Pinyin and English are not supported fully. If a user searches by Pinyin, he could only search by one character. For example, ideally, "世外桃源" should be searched by "shi wai tao yuan" or a partial parten. However, it can be searched only by "shi" or "wai" or "tao" or "yuan". Moreover, the user could also search a chengdu while indicating its tags or domains. For example, when a user want to search "无" with only negative attitude, he can select "negative" tag under filter section. Then, all chengyus whcih contain charactor "无" will display in the display section. 
+\indent Initially, we have three search methods. There are three sections over the input box. Users can search by Chinese, Pinyin and English. Currently, searching by Chinese is perfect, but Pinyin and English are not supported fully. If a user searches by Pinyin, he could only search by one character. For example, ideally, "世外桃源" should be searched by "shi wai tao yuan" or a partial pattern. However, it can be searched only by "shi" or "wai" or "tao" or "yuan". Moreover, the user could also search a chengdu while indicating its tags or domains. For example, when a user want to search "无" with only negative attitude, he can select "negative" tag under filter section. Then, all chengyus whcih contain charactor "无" will display in the display section. 
 
 \subsection{User Interface}
 \indent In total, we have three sections for our main page. First of all, our title section locate in the top middle. Below that, it is our search section where there are one input box, three navigate button, a dropdown selection box to select tags and two major button to either search a chengdu or download xml file. After that, we have one more section to display the search results. The results are displayed in a table where the columns contains Chinese, pinyin, figurative English translation, extended English meaning, example, example translation and frequency. Domains as known as tags, designed as badges, are attached at the beginning of each row.
