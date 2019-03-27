@@ -1,12 +1,14 @@
 \documentclass[11pt]{article} %, twocolumn if need to be
 \usepackage{geometry}
 \geometry{a4paper}
-%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}					
 \usepackage{times} % Times font
 \usepackage{url,hyperref}	
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{xeCJK}
+%\setCJKmainfont{SimSun}
 
 \title{Chengyu Dictionary Documentation} % Project Documentation Title
 \author{Xuefeng Luo \and Jingwen Li}
@@ -15,10 +17,16 @@
 \maketitle
 
 \section{Introduction}
-\indent This is reserved for introduction.
+\indent The Internet has promoted globalisation and along with it, the urge (or necessity) to be multilingual. Following this trend, Chinese learners worldwide have also increased in number. As an inseparable part of the Chinese language, \textit{Chengyu}, or the so-called "four-character idioms", is on the other hand difficult to master. One reason behind this is that there are simply so many of them and it is hard for a learner to learn them in chunks. Most of the \textit{Chengyu} are learned as they are encountered, which surely satisfies most learners practically, but not the hungry ones. To help the intermediate/advanced Chinese learners, we present this Chengyu Dictionary as an entry-point to tame these culturally rich beasts.\\
+\\
+\indent This paper is presented in the following structure:\\
+Section 2 talks about the existing tools and a paper on translating Chengyu into English. Section 3 lists the project dependencies. Section 4 is about data processing, including preprocessing the corpora, translation difficulties and other lexicographic decisions made. Section 5 deals with the search mechanism with technical details. Then, in section 6, we present the user interface. Section 7 recorded the division of labor and section 8 is our discussion of this tool and vision for future improvements.
 
 \section{Related Works}
 \indent List related works here. For example existing online Chengyu dictionaries. A paper on translating Chengyu into English.
+
+\section{Project Dependencies}
+\indent Talk about the technologies used.
 
 \section{Method}
 \subsection{Pre-processing Steps}
