@@ -52,6 +52,9 @@
 \subsection{Search Mechanism}
 \indent We split our search function into two parts. The initial search and tag-filter. In our initial search, we first decide which mode the user chose and pass target and mode variables to our search logic class. In this class, we already made SQL statement templates and insert variables into those statement and request database to search. After database returning back, we retrieve the data and pasre the data into an arraylist of Entries. Then, we used the pre-made function to filter the results and sent them to the front.
 
+\subsection{Database}
+\indent We are using MySQL which is the world most common used and free relational database and it is easy to used and maintain. To design our data tables, we follow first, second and third normalization where we eliminate all repeat records, partial dependency and transfer dependency. Thus, we have chengyu table and tags table and one more assiociate table which stores the relationships of chengyu and tags where we have IDs for both chengyu and tags as primary keys and foreign keys.
+
 \bibliographystyle{abbrv}
 \bibliography{refs}
 
