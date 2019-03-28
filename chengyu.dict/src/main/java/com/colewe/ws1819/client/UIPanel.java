@@ -291,20 +291,6 @@ public class UIPanel extends Composite implements HasText {
 				StringBuilder block = new StringBuilder("");
 				
 				this.appendHTMLTagOpen(block, "table");
-//				this.appendHTMLTagOpen(block, "thead");
-//				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
-				
-//				this.appendHTMLTag(block, "th", "Chinese");
-//				this.appendHTMLTag(block, "th", "Pinyin");
-//				this.appendHTMLTag(block, "th", "English Literal");
-//				this.appendHTMLTag(block, "th", "English Figurative");
-//				this.appendHTMLTag(block, "th", "Example");
-////				this.appendHTMLTag(block, "th", "Example Translation");
-//				this.appendHTMLTag(block, "th", "Origin");
-////				this.appendHTMLTag(block, "th", "Origin Translation");
-//				this.appendHTMLTag(block, "th", "Frequency");
-//				this.appendHTMLTagClose(block, "tr");
-//				this.appendHTMLTagClose(block, "thead");
 				this.appendHTMLTagOpen(block, "tbody");
 				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
 				this.appendHTMLTagOpen(block, "td");
@@ -359,33 +345,7 @@ public class UIPanel extends Composite implements HasText {
 				this.appendHTMLTag(block, "div\tclass=\"value\"", entry.getFrequency());
 				this.appendHTMLTagClose(block, "td");
 				this.appendHTMLTagClose(block, "tr");
-				
-				
-				
-//				this.appendHTMLTag(block, "label", entry.getChinese());
-			
-//				if(entry.hasTags()) {
-//					for(String tag: entry.getTags()) {
-//						this.appendHTMLTag(block, "badge", tag, "badge");
-//					}
-//				}
-//				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
-//				this.appendHTMLTag(block, "td", entry.getChinese());
-//				
-//				
-//				this.appendHTMLTag(block, "td", entry.getPinyin());
-//				this.appendHTMLTag(block, "td", entry.getEnglishLiteral());
-//				this.appendHTMLTag(block, "td", entry.getEnglishFigurative());
-//				this.appendHTMLTag(block, "td", entry.getExample());
-////				this.appendHTMLTag(block, "td", entry.getExampleTranslation());
-//				this.appendHTMLTag(block, "td", entry.getOrigin());
-////				this.appendHTMLTag(block, "td", entry.getOrignTranslation());
-//				this.appendHTMLTag(block, "td", entry.getFrequency());
-//				
-//				ArrayList<String> tags = new ArrayList<String>();
-//				this.appendHTMLTag(block, "td", entry.hasTags(tags));
-				
-//				this.appendHTMLTagClose(block, "tr");
+		
 				this.appendHTMLTagClose(block, "tbody");
 				this.appendHTMLTagClose(block, "table");
 				this.appendHTMLTag(sb, "b:PanelBody", block.toString());

@@ -84,16 +84,17 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 					stmt.setString(1, "%" + target + "%");
 					break;
 				case 3:
-					stmt = conn.prepareStatement("select * from Chengyu as c"
+					stmt = conn.prepareStatement("select * from Chengyu as c "
 							+ "left join ChengyuTag as ct "
 							+ "on ct.ChengyuID = c.ID "
 							+ "left join Tags as t "
 							+ "on t.ID = ct.TagID "
-							+ "where EnglishLiteral like ?");
+							+ "where EnglishLiteral like ? or EnglishFigurative like ?");
 					stmt.setString(1, "%" + target + "%");
+					stmt.setString(2, "%" + target + "%");
 					break;
 				default:
-					stmt = conn.prepareStatement("select * from Chengyu as c"
+					stmt = conn.prepareStatement("select * from Chengyu as c "
 							+ "left join ChengyuTag as ct "
 							+ "on ct.ChengyuID = c.ID "
 							+ "left join Tags as t "
@@ -256,16 +257,17 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 					stmt.setString(1, "%" + target + "%");
 					break;
 				case 3:
-					stmt = conn.prepareStatement("select * from Chengyu as c"
+					stmt = conn.prepareStatement("select * from Chengyu as c "
 							+ "left join ChengyuTag as ct "
 							+ "on ct.ChengyuID = c.ID "
 							+ "left join Tags as t "
 							+ "on t.ID = ct.TagID "
-							+ "where EnglishLiteral like ?");
+							+ "where EnglishLiteral like ? or EnglishFigurative like ?");
 					stmt.setString(1, "%" + target + "%");
+					stmt.setString(2, "%" + target + "%");
 					break;
 				default:
-					stmt = conn.prepareStatement("select * from Chengyu as c"
+					stmt = conn.prepareStatement("select * from Chengyu as c "
 							+ "left join ChengyuTag as ct "
 							+ "on ct.ChengyuID = c.ID "
 							+ "left join Tags as t "
