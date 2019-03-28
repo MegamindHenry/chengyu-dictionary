@@ -114,6 +114,7 @@ public class UIPanel extends Composite implements HasText {
 			
 		});
 		
+		advancedOption.setActive(false);
 		advancedOption.addClickHandler(new ClickHandler(){
 
 			@Override
@@ -133,10 +134,12 @@ public class UIPanel extends Composite implements HasText {
 		downloadButton.setText("Download");
 		
 		filter.setVisible(true);
+		filter.setSize("350px", "30px");
 		
-		outputHTML.setHTML("<h3>Your output will go here<h3>");
+//		outputHTML.setHTML("<h3>Search results will go here<h3>");
 		
 		inputTextBox.addStyleName("form-control");
+		inputTextBox.setSize("600px", "30px");
 	}
 	
 	public ArrayList<String> getFilter() {
@@ -290,7 +293,7 @@ public class UIPanel extends Composite implements HasText {
 				
 				this.appendHTMLTagOpen(block, "table");
 				this.appendHTMLTagOpen(block, "thead");
-				this.appendHTMLTagOpen(block, "tr");
+				this.appendHTMLTagOpen(block, "tr\\tvalign=\\\"top\\\"");
 				
 				this.appendHTMLTag(block, "th", "Chinese");
 				this.appendHTMLTag(block, "th", "Pinyin");
@@ -314,7 +317,7 @@ public class UIPanel extends Composite implements HasText {
 						this.appendHTMLTag(block, "badge", tag, "badge");
 					}
 				}
-				this.appendHTMLTagOpen(block, "tr");
+				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
 				this.appendHTMLTag(block, "td", entry.getChinese());
 				
 				

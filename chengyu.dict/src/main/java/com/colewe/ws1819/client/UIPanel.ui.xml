@@ -42,14 +42,15 @@
 			
 				<div class="form-group">
 					<g:TextBox	ui:field="inputTextBox"></g:TextBox>
-					<div></div>
-					<b:Button	ui:field="searchButton"></b:Button>
+				</div>
+				<div class="search-button-group">	
+					<b:Button ui:field="searchButton"></b:Button>
 					<b:Button ui:field="downloadButton"></b:Button>
 					<b:Button ui:field="tagButton"></b:Button>
 				</div>
 		
 				<div class="advanced-search-group">
-					<b:Button ui:field="advancedOption">Advanced</b:Button>
+					<b:Button ui:field="advancedOption">Advanced Search Option: Tags</b:Button>
 					<select:MultipleSelect ui:field="filter">
 						<select:OptGroup label="Character">
 							<select:Option text="Animals" value="Animals"/>
