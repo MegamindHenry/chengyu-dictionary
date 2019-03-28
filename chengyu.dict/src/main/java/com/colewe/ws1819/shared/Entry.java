@@ -7,6 +7,7 @@ public class Entry implements Serializable{
 	String id;
 	String abbr;
 	String chinese;
+	String chineseExplanation;
 	String englishLiteral;
 	String englishFigurative;
 	String pinyin;
@@ -21,6 +22,7 @@ public class Entry implements Serializable{
 		this.id = null;
 		this.abbr = null;
 		this.chinese = null;
+		this.chineseExplanation = null;
 		this.englishLiteral = null;
 		this.englishFigurative = null;
 		this.pinyin = null;
@@ -32,12 +34,13 @@ public class Entry implements Serializable{
 		this.tags = new ArrayList<String>();
 	}
 	
-	public Entry(String id, String abbr, String chinese, String englishLiteral,
+	public Entry(String id, String abbr, String chinese, String chineseExplanation, String englishLiteral,
 			String englishFigurative, String pinyin, String example, String exampleTranslation,
 			String origin, String originTranslation, String frequency) {
 		this.id = id;
 		this.abbr = abbr;
 		this.chinese = chinese;
+		this.chineseExplanation = chineseExplanation;
 		this.englishLiteral = englishLiteral;
 		this.englishFigurative = englishFigurative;
 		this.pinyin = pinyin;
@@ -68,6 +71,11 @@ public class Entry implements Serializable{
 	public String getChinese() {
 		return this.chinese;
 	}
+	
+	public String getChineseExplanation() {
+		return this.chineseExplanation;
+	}
+	
 	public String getEnglishLiteral() {
 		return this.englishLiteral;
 	}

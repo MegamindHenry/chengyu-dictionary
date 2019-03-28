@@ -285,55 +285,107 @@ public class UIPanel extends Composite implements HasText {
 			for(Entry entry: results) {
 				this.appendHTMLTagOpen(sb, "b:Panel");
 				this.appendHTMLTagOpen(sb, "b:PanelHeader");
-				this.appendHTMLTagOpen(sb, "Heading" + "\t" + "size:\"H4\"");
-				this.appendHTMLTagClose(sb, "b:Heading");
+				this.appendHTMLTag(sb, "b:Heading\tclass=\"abc\"", entry.getChinese());
 				this.appendHTMLTagClose(sb, "b:PanelHeader");
 			
 				StringBuilder block = new StringBuilder("");
 				
 				this.appendHTMLTagOpen(block, "table");
-				this.appendHTMLTagOpen(block, "thead");
-				this.appendHTMLTagOpen(block, "tr\\tvalign=\\\"top\\\"");
+//				this.appendHTMLTagOpen(block, "thead");
+//				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
 				
-				this.appendHTMLTag(block, "th", "Chinese");
-				this.appendHTMLTag(block, "th", "Pinyin");
-				this.appendHTMLTag(block, "th", "English Literal");
-				this.appendHTMLTag(block, "th", "English Figurative");
-				this.appendHTMLTag(block, "th", "Example");
-//				this.appendHTMLTag(block, "th", "Example Translation");
-				this.appendHTMLTag(block, "th", "Origin");
-//				this.appendHTMLTag(block, "th", "Origin Translation");
-				this.appendHTMLTag(block, "th", "Frequency");
-				this.appendHTMLTagClose(block, "tr");
-				this.appendHTMLTagClose(block, "thead");
+//				this.appendHTMLTag(block, "th", "Chinese");
+//				this.appendHTMLTag(block, "th", "Pinyin");
+//				this.appendHTMLTag(block, "th", "English Literal");
+//				this.appendHTMLTag(block, "th", "English Figurative");
+//				this.appendHTMLTag(block, "th", "Example");
+////				this.appendHTMLTag(block, "th", "Example Translation");
+//				this.appendHTMLTag(block, "th", "Origin");
+////				this.appendHTMLTag(block, "th", "Origin Translation");
+//				this.appendHTMLTag(block, "th", "Frequency");
+//				this.appendHTMLTagClose(block, "tr");
+//				this.appendHTMLTagClose(block, "thead");
 				this.appendHTMLTagOpen(block, "tbody");
-				
-				
-				
-				this.appendHTMLTag(block, "label", entry.getChinese());
-			
+				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
+				this.appendHTMLTagOpen(block, "td");
+				this.appendHTMLTag(block, "div\tclass=\"attribute\"", "Chinese");
+				this.appendHTMLTag(block, "div\tclass=\"value\"", entry.getChinese());
 				if(entry.hasTags()) {
 					for(String tag: entry.getTags()) {
 						this.appendHTMLTag(block, "badge", tag, "badge");
 					}
 				}
+				this.appendHTMLTagClose(block, "td");
+				this.appendHTMLTagClose(block, "tr");
 				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
-				this.appendHTMLTag(block, "td", entry.getChinese());
+				this.appendHTMLTagOpen(block, "td");
+				this.appendHTMLTag(block, "div\tclass=\"attribute\"", "Pinyin");
+				this.appendHTMLTag(block, "div\tclass=\"value\"", entry.getPinyin());
+				this.appendHTMLTagClose(block, "td");
+				this.appendHTMLTagClose(block, "tr");
+				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
+				this.appendHTMLTagOpen(block, "td");
+				this.appendHTMLTag(block, "div\tclass=\"attribute\"", "English Literal Translation");
+				this.appendHTMLTag(block, "div\tclass=\"value\"", entry.getEnglishLiteral());
+				this.appendHTMLTagClose(block, "td");
+				this.appendHTMLTagClose(block, "tr");
+				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
+				this.appendHTMLTagOpen(block, "td");
+				this.appendHTMLTag(block, "div\tclass=\"attribute\"", "English Figurative Translation");
+				this.appendHTMLTag(block, "div\tclass=\"value\"", entry.getEnglishFigurative());
+				this.appendHTMLTagClose(block, "td");
+				this.appendHTMLTagClose(block, "tr");
+				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
+				this.appendHTMLTagOpen(block, "td");
+				this.appendHTMLTag(block, "div\tclass=\"attribute\"", "Chinese Explanation");
+				this.appendHTMLTag(block, "div\tclass=\"value\"", entry.getChineseExplanation());
+				this.appendHTMLTagClose(block, "td");
+				this.appendHTMLTagClose(block, "tr");
+				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
+				this.appendHTMLTagOpen(block, "td");
+				this.appendHTMLTag(block, "div\tclass=\"attribute\"", "Origin");
+				this.appendHTMLTag(block, "div\tclass=\"value\"", entry.getOrigin());
+				this.appendHTMLTagClose(block, "td");
+				this.appendHTMLTagClose(block, "tr");
+				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
+				this.appendHTMLTagOpen(block, "td");
+				this.appendHTMLTag(block, "div\tclass=\"attribute\"", "Example");
+				this.appendHTMLTag(block, "div\tclass=\"value\"", entry.getExample());
+				this.appendHTMLTagClose(block, "td");
+				this.appendHTMLTagClose(block, "tr");
+				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
+				this.appendHTMLTagOpen(block, "td");
+				this.appendHTMLTag(block, "div\tclass=\"attribute\"", "Frequency in corpus");
+				this.appendHTMLTag(block, "div\tclass=\"value\"", entry.getFrequency());
+				this.appendHTMLTagClose(block, "td");
+				this.appendHTMLTagClose(block, "tr");
 				
 				
-				this.appendHTMLTag(block, "td", entry.getPinyin());
-				this.appendHTMLTag(block, "td", entry.getEnglishLiteral());
-				this.appendHTMLTag(block, "td", entry.getEnglishFigurative());
-				this.appendHTMLTag(block, "td", entry.getExample());
-//				this.appendHTMLTag(block, "td", entry.getExampleTranslation());
-				this.appendHTMLTag(block, "td", entry.getOrigin());
-//				this.appendHTMLTag(block, "td", entry.getOrignTranslation());
-				this.appendHTMLTag(block, "td", entry.getFrequency());
 				
+//				this.appendHTMLTag(block, "label", entry.getChinese());
+			
+//				if(entry.hasTags()) {
+//					for(String tag: entry.getTags()) {
+//						this.appendHTMLTag(block, "badge", tag, "badge");
+//					}
+//				}
+//				this.appendHTMLTagOpen(block, "tr\tvalign=\"top\"");
+//				this.appendHTMLTag(block, "td", entry.getChinese());
+//				
+//				
+//				this.appendHTMLTag(block, "td", entry.getPinyin());
+//				this.appendHTMLTag(block, "td", entry.getEnglishLiteral());
+//				this.appendHTMLTag(block, "td", entry.getEnglishFigurative());
+//				this.appendHTMLTag(block, "td", entry.getExample());
+////				this.appendHTMLTag(block, "td", entry.getExampleTranslation());
+//				this.appendHTMLTag(block, "td", entry.getOrigin());
+////				this.appendHTMLTag(block, "td", entry.getOrignTranslation());
+//				this.appendHTMLTag(block, "td", entry.getFrequency());
+//				
 //				ArrayList<String> tags = new ArrayList<String>();
 //				this.appendHTMLTag(block, "td", entry.hasTags(tags));
 				
-				this.appendHTMLTagClose(block, "tr");
+//				this.appendHTMLTagClose(block, "tr");
 				this.appendHTMLTagClose(block, "tbody");
 				this.appendHTMLTagClose(block, "table");
 				this.appendHTMLTag(sb, "b:PanelBody", block.toString());

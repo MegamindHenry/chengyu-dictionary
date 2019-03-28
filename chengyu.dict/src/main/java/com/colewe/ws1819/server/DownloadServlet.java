@@ -104,9 +104,9 @@ public class DownloadServlet extends HttpServlet {
 			while (rs.next()) {
 				String tag = rs.getString("Tag");
 				
-				Entry entry = new Entry(rs.getString("ID"), rs.getString("Abbr"), rs.getString("Chinese"),
-						rs.getString("EnglishLiteral"), rs.getString("EnglishFigurative"), rs.getString("Pinyin"),
-						rs.getString("Example"), rs.getString("ExampleTranslation"), rs.getString("Origin"),
+				Entry entry = new Entry(rs.getString("ID"), rs.getString("Abbr"), rs.getString("Chinese"), 
+						rs.getString("ChineseExplanation"), rs.getString("EnglishLiteral"), rs.getString("EnglishFigurative"), 
+						rs.getString("Pinyin"), rs.getString("Example"), rs.getString("ExampleTranslation"), rs.getString("Origin"),
 						rs.getString("OriginTranslation"), rs.getString("Frequency"));
 				
 				boolean found = false;

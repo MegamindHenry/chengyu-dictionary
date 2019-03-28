@@ -50,7 +50,7 @@
 				</div>
 		
 				<div class="advanced-search-group">
-					<b:Button ui:field="advancedOption">Advanced Search Option: Tags</b:Button>
+					<b:Button ui:field="advancedOption">Advanced Search</b:Button>
 					<select:MultipleSelect ui:field="filter">
 						<select:OptGroup label="Character">
 							<select:Option text="Animals" value="Animals"/>
