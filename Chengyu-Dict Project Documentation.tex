@@ -41,66 +41,9 @@ A list of project dependencies used in this project (managed by Maven):
 \begin{itemize}
 \item Google Web Toolkit and Mojo's Maven Plugin for GWT  (gwt-maven-plugin, version 2.8.1)
 \item GwtBootstrap3 and GwtBootstrap3-extras (gwtbootstrap3 and gwtbootstrap3-extras, version 0.9.4) for button group, button dropdown and multiple select.
-\item MySQL (version X.X.X) for our database
 \end{itemize}
 
-\section{Method}
-\subsection{Pre-processing Steps}
-\indent Talk about selection of Corpora, sort by frequency etc.\\
-\subsubsection{Chengyu Data}
-Available at: https://github.com/by-syk/chinese-idiom-db\\
-\subsubsection{Corpus: OpenSubtitles}
-\indent OpenSubtitles: blah\\
-\subsubsection{Determine Frequency of Chengyu}
-\indent Cross-reference with data from Github, order by frequency, first 150 entries are translated
-\subsubsection{Convert to JSON}
-\subsubsection{Translation}
-\subsubsection{MySQL Database}
-
-\subsection{Linguistic Problems}
-
-\indent blah.Talk about Chengyu and its status in Chinese. Talk about how the choice of corpora might have affected the frequency observed. Talk about translation difficulties.\\
-Chengyu and Chinese.\\
-Written language and spoken language differ, film language is more so. Film subtitles might subject to the limit of space and time, to use them in a somewhat unnatural way. One improvement to be made could be to incorporate different kinds of corpora. But then there is also a problem with time. Literature might be old and language might be archaic. In this sense, since film are rather recent, could be a good choice.\\
-
-\subsection{Lexicographic Decisions}
-
-\indent How to organise the entries. What information to include. \\
-
-\section{Search Mechanism}
-
-\indent blah\\
-
-\section{User Interface}
-
-\indent blah. insert a screenshot. blah.\\
-
-\section{Division of Labor}
-
-\indent blah\\
-
-\section{Discussion and Future Work}
-\indent What we have accomplished with regard to the initial plan we set out. What didn't. I guess one thing is that we did not do the origin translation. Pinyin search.
-
-\indent What could be improved given more time invested on the project. 
-
-\section{What Heitu wrote}
-\subsection{Search}
-\indent Initially, we have three search methods. There are three sections over the input box. Users can search by Chinese, Pinyin and English. Currently, searching by Chinese is perfect, but Pinyin and English are not supported fully. If a user searches by Pinyin, he could only search by one character. For example, ideally, "世外桃源" should be searched by "shi wai tao yuan" or a partial pattern. However, it can be searched only by "shi" or "wai" or "tao" or "yuan". Moreover, the user could also search a chengdu while indicating its tags or domains. For example, when a user want to search "无" with only negative attitude, he can select "negative" tag under filter section. Then, all chengyus whcih contain charactor "无" will display in the display section. 
-
-\subsection{User Interface}
-\indent In total, we have three sections for our main page. First of all, our title section locate in the top middle. Below that, it is our search section where there are one input box, three navigate button, a dropdown selection box to select tags and two major button to either search a chengdu or download xml file. After that, we have one more section to display the search results. The results are displayed in a table where the columns contains Chinese, pinyin, figurative English translation, extended English meaning, example, example translation and frequency. Domains as known as tags, designed as badges, are attached at the beginning of each row.
-
-\subsection{Search Mechanism}
-\indent We split our search function into two parts. The initial search and tag-filter. In our initial search, we first decide which mode the user chose and pass target and mode variables to our search logic class. In this class, we already made SQL statement templates and insert variables into those statement and request database to search. After database returning back, we retrieve the data and pasre the data into an arraylist of Entries. Then, we used the pre-made function to filter the results and sent them to the front.
-
-\subsection{Database}
-\indent We are using MySQL which is the world most common used and free relational database and it is easy to used and maintain. To design our data tables, we follow first, second and third normalization where we eliminate all repeat records, partial dependency and transfer dependency. Thus, we have chengyu table and tags table and one more assiociate table which stores the relationships of chengyu and tags where we have IDs for both chengyu and tags as primary keys and foreign keys.
-
-\subsection{Frequency}
-\indent In order to allow Chinese Chengyu learner to learn which chengyu are mostly common used and which chengyus are not. We count each chengyu within a movie subtitile database. Though there are limited resource of chengyu usage, we managed to draw a general idea of how chengyus are used. To count the appearances of each chengyu, we create a separate python program located in the data folder.
-
-\subsection{How to install}
+\section{How to install}
 To install our application, please follow the listed instructions:
 
 \begin{enumerate}
@@ -116,8 +59,96 @@ To install our application, please follow the listed instructions:
   \item Enjoy it!
 \end{enumerate}
 
-\subsection{ref list}
-\indent open-subtitle database
+\section{Method}
+\subsection{Pre-processing Steps}
+\indent Currently, there was no ready-made data resources we could find. Thus, we found a chinese chengyu dictionary online resource, calculate all chengyus' frequencies, translated and tagged about 150 records.
+
+\subsubsection{Chengyu Data}
+Available at: https://github.com/by-syk/chinese-idiom-db\\
+
+\subsection{Frequency of Chengyu}
+\indent In order to allow Chinese Chengyu learner to learn which chengyu are mostly common used and which chengyus are not. We count each chengyu within a movie subtitile database. Though there are limited resource of chengyu usage, we managed to draw a general idea of how chengyus are used. To count the appearances of each chengyu, we create a separate python program located in the data folder.
+
+\subsection{Data Format}
+\indent The original data we retrieved was in Comma-separated Value (CSV) formatted. Since we write a Python program to count frequency where Python genetically support JSON and MySQL also support JSON regarding importing data, we use JSON as our data format. As for Tags and chengyu-tag relations, we keep the format as CSV and for data structures, we remain it in SQL format.
+
+\subsection{Linguistic Problems}
+
+\indent blah.Talk about Chengyu and its status in Chinese. Talk about how the choice of corpora might have affected the frequency observed. Talk about translation difficulties.\\
+Chengyu and Chinese.\\
+Written language and spoken language differ, film language is more so. Film subtitles might subject to the limit of space and time, to use them in a somewhat unnatural way. One improvement to be made could be to incorporate different kinds of corpora. But then there is also a problem with time. Literature might be old and language might be archaic. In this sense, since film are rather recent, could be a good choice.\\
+
+\subsection{Lexicographic Decisions}
+
+\indent How to organise the entries. What information to include. \\
+
+\subsection{Search Mechanism}
+
+\indent We split our search function into two parts. The initial search and tag-filter.
+
+In our initial search, we first decide which mode the user chose and pass target and mode variables to our search logic class. In this class, we already made SQL statement templates and insert variables into those statement and request database to search.
+
+After database returning back, we retrieve the data and pasre the data into an arraylist of Entries. Then, we used the pre-made function to filter the results and sent them to the front.
+
+Intuitively, want to our filter function takes place in the front-end written by JavaScripts where industrial standards usually do. However, we found our GWT have problems with this method where user interface was designed in Java and written JavaScripts was actually very hard to step in. Thus, we moved our tag filter function back to Java. 
+
+\subsection{Database}
+\indent We are using MySQL which is the world most common used and free relational database and it is easy to used and maintain.
+
+To design our data tables, we follow first, second and third normalization where we eliminate all repeat records, partial dependency and transfer dependency. Thus, we have chengyu table and tags table and one more associate table which stores the relationships of chengyu and tags where we have IDs for both chengyu and tags as primary keys and foreign keys.
+
+Figure 1 shows the relationships of our tables.
+
+\indent a ERD of our table
+
+\section{User Interface}
+
+\subsection{Three Search Mode}
+\indent To search a chengyu, you can directly search it by typing in its Chinese characters. Sometimes, you forget how to write it, and you can search the chengyu by typing in its pinyin.
+
+As for English learner, sometimes you want to search a chengyu which has specific meanning, so that you can type in its English meaning.
+
+Thus, we designed these three search modes where you can search by Chinese, pinyin or English. The switches are shown as Figure 1.
+
+\indent a figure here for the three mode button
+
+\subsection{Tags}
+\indent One interesting thing about chengyu is that chengyus love to use metaphors of animals, human body parts and numbers.
+
+Another interesting thing is that there are certain pattern to form a chengyu, such as "一心一意", "三天两头", "七上八下" where the first and third characters are all numbers.
+
+Attitude is also important to chengyu, a same meaning can be sperated to different chengyus regarding its attitude. For example, "臭味相投" and "志同道合" both mean similar people go together, but the former is used for bad persons such as gangsters and the later is used for good persons such as business partners.
+
+That is why, we design this tag filter to help people narrow down all-kind of chengyus. Figure 2 shows a table of chengyu tag examples and Figure 3 and 4 shows how it looks like in our application. 
+
+\indent a table of chengyu tags example 唇齿相依，虎头蛇尾，狗仗人势，一心一意，三天两头， 七上八下， 臭味相投， 志同道合
+
+\indent a screen shot of filter
+
+\indent a scree shot of tags badge
+
+\subsection{Results Display}
+
+\indent Search results are displayed in the lower section of our page, shown as Figure 5, where each chengyu takes a block and each column takes a row. Tags are attached as badges to the title.
+
+\indent a screenshot of results
+
+\section{Division of Labor}
+
+\indent We worked as a team for the majority of the project parts. However, we do have specialties regarding what we are good at and what we are not. Therefore, we make a list of all sections with percentages of what we have done.
+
+\begin{itemize}
+    \item Database designs (Xuefeng 70\% and Jingwen 30\%)
+    \item Front-end/client side coding (Xuefeng 50\% and Jingwen 50\%)
+    \item Back-end/server side coding (Xuefeng 70\% and Jingwen 30\%)
+    \item Data collection (Xuefeng 30\% and Jingwen 70\%)
+    \item Project Report (Xuefeng 30\% and Jingwen 70\%)
+\end{itemize}
+
+\section{Discussion and Future Work}
+\indent What we have accomplished with regard to the initial plan we set out. What didn't. I guess one thing is that we did not do the origin translation. Pinyin search.
+
+\indent What could be improved given more time invested on the project. 
 
 \bibliographystyle{abbrv}
 \bibliography{refs}
