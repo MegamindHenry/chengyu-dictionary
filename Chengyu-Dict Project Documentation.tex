@@ -25,14 +25,16 @@ Section 2 talks about the existing tools and a paper on translating Chengyu into
 \section{Related Works}
 The following are existing tools that share similar functions with our web application:
 \begin{itemize}
-\item a Chengyu Dictionary provided by \textit{Chinese-Tools.com}\\
+\item Chengyu Dictionary provided by \textit{Chinese-Tools.com}\\
+\textit{Chengyu Dictionary} is an online dictionary that provide pinyin, explanations in English (only for some entries) and detailed explanations in Chinese, including meaning, context, example, synonyms, antonyms and even grammatical information. A user may search by pinyin or Chinese character input, but not English. The results are displayed in a list of links which lead to the entries' own page, where the above information are presented.\\
+\\
 Available at: https://www.chinese-tools.com/chinese/chengyu/dictionary\\
-Discussion:\\
 \item Google-Translate for translating Chengyu\\
-Discussion:\\
-\item a paper on translation of Chengyu into English\\
-Discussion:\\
+One may also input a Chengyu into Google Translate, but the translation is most of the time not accurate enough and is without context. No additional information is provided except the translation. \\
 \end{itemize}
+There is also a paper on translation strategies: \textit{A Study of Idiom Translation Strategies between English and Chinese}\\
+This paper discussed the different strategies that are commonly used when translating idiomatic phrases, Chengyu in particular, into English. The four main strategies are: literal translation, free translation, abridged translation and borrowing translation. It also outlined the principles to live by when translating idioms.
+
 
 \section{Project Dependencies}
 A list of project dependencies used in this project (managed by Maven):
@@ -44,8 +46,15 @@ A list of project dependencies used in this project (managed by Maven):
 \section{Method}
 \subsection{Pre-processing Steps}
 \indent Talk about selection of Corpora, sort by frequency etc.\\
+\subsubsection{Chengyu Data}
+Available at: https://github.com/by-syk/chinese-idiom-db\\
+\subsubsection{Corpus: OpenSubtitles}
 \indent OpenSubtitles: blah\\
+\subsubsection{Determine Frequency of Chengyu}
 \indent Cross-reference with data from Github, order by frequency, first 150 entries are translated
+\subsubsection{Convert to json}
+\subsubsection{Translation}
+\subsubsection{MySQL Database}
 
 \subsection{Linguistic Problems}
 

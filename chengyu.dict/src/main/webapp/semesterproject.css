@@ -24,7 +24,12 @@ h1 {
   text-align: left;
 }
 
-attribute{
+b:Heading{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.attribute{
   font-weight: bold;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -33,11 +38,8 @@ attribute{
 .value{
   padding-top: 5px;
   padding-bottom: 5px;
-}
-
-b:Heading{
-  font-size: 2em;
-  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .abc{
