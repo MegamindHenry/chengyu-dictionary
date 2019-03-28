@@ -46,7 +46,6 @@
 				<div class="search-button-group">	
 					<b:Button ui:field="searchButton"></b:Button>
 					<b:Button ui:field="downloadButton"></b:Button>
-					<b:Button ui:field="tagButton"></b:Button>
 				</div>
 		
 				<div class="advanced-search-group">

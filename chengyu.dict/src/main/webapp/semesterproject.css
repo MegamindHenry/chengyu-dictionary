@@ -24,7 +24,8 @@ h1 {
   text-align: left;
 }
 
-.attribute{
+attribute{
+  font-weight: bold;
   padding-top: 5px;
   padding-bottom: 5px;
 }

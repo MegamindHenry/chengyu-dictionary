@@ -94,7 +94,6 @@ public class semesterproject implements EntryPoint {
 		};
 	  
 	  uiPanel.searchButton.addClickHandler(searchTag);
-	  uiPanel.tagButton.addClickHandler(searchTag);
 	  uiPanel.downloadButton.addClickHandler(download);
   }
 }
