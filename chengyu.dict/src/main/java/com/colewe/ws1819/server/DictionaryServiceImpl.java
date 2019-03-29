@@ -156,66 +156,6 @@ public class DictionaryServiceImpl extends RemoteServiceServlet implements Dicti
 		return result;
 	}
 	
-//	/**
-//	 * search function for dictionary
-//	 * 
-//	 * @param
-//	 * @author Xuefeng and Jingwen
-//	 */
-//	@Override
-//	public ArrayList<Entry> tagSearch(String tagID) {
-//		//doing the search
-//		
-//		ArrayList<Entry> result = new ArrayList<>();
-//		Connection conn;
-//		PreparedStatement stmt = null;
-//		
-//		try {
-//			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-//			
-//			ResultSet rs;
-//			
-//			stmt = conn.prepareStatement("select * from Chengyu as c " + 
-//					"left join ChengyuTag as ct " + 
-//					"on c.ID = ct.ChengyuID " + 
-//					"left join Tags as t " + 
-//					"on t.ID = ct.TagID " + 
-//					"where ct.TagID = ?");
-//			stmt.setString(1, tagID);
-//			
-//			rs = stmt.executeQuery();
-//			
-//			while (rs.next()) {
-//				String tag = rs.getString("Tag");
-//				
-//				Entry entry = new Entry(rs.getString("ID"), rs.getString("Abbr"), rs.getString("Chinese"),
-//						rs.getString("EnglishLiteral"), rs.getString("EnglishFigurative"), rs.getString("Pinyin"),
-//						rs.getString("Example"), rs.getString("ExampleTranslation"), rs.getString("Origin"),
-//						rs.getString("OriginTranslation"), rs.getString("Frequency"));
-//				
-//				if(result.contains(entry)) {
-//					entry = result.get(result.indexOf(entry));
-//					if(tag != null) {
-//						entry.addTag(tag);
-//					}
-//				}else {
-//					if(tag != null) {
-//						entry.addTag(tag);
-//					}
-//					result.add(entry);
-//				}
-//				
-//				
-//			}
-//			
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		
-//		//return a result in a Arraylist with dictionaryentry
-//		return result;
-//	}
 	
 	/**
 	 * search function for dictionary
