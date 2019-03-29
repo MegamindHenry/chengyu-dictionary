@@ -26,11 +26,11 @@ Section 2 talks about the existing tools and a paper on translating Chengyu into
 The following are existing tools that share similar functions with our web application:
 \begin{itemize}
 \item Chengyu Dictionary provided by \textit{Chinese-Tools.com}\\
-\textit{Chengyu Dictionary} is an online dictionary that provide pinyin, explanations in English (only for some entries) and detailed explanations in Chinese, including meaning, context, example, synonyms, antonyms and even grammatical information. A user may search by pinyin or Chinese character input, but not English. The results are displayed in a list of links which lead to the entries' own page, where the above information are presented.\\
+\textit{Chengyu Dictionary} is an online dictionary that provide pinyin, explanations in English (only for some entries) and detailed explanations in Chinese for 30000 Chengyu. The information provided in Chinese includes meaning, context(origin), example, synonyms, antonyms and even grammatical information. A user may search by pinyin or Chinese character input, but not English. The results are displayed in a list of links which lead to the entries' own page, where the above information are presented.\\
 \\
 Available at: https://www.chinese-tools.com/chinese/chengyu/dictionary\\
-\item Google-Translate for translating Chengyu\\
-One may also input a Chengyu into Google Translate, but the translation is most of the time not accurate enough and is without context. No additional information is provided except the translation. \\
+\item lists of Chengyu that are introduced on websites, for example \textit{List of 148 well-known Chengyu}, available at: https://www.saporedicina.com/english/list-chengyu/\\
+There are a lot of similar resources like this on the Internet. They are mainly summaries of frequently encountered Chengyu by Chinese learners, so they differ individually. Upon further inspection, they are not listed in the most-frequent-to-least-frequent manner, but overall these are very common Chengyu. Information provided for each Chengyu includes Chinese characters, pinyin and meaning in English.\\
 \end{itemize}
 There is also a paper on translation strategies: \textit{A Study of Idiom Translation Strategies between English and Chinese}\\
 This paper discussed the different strategies that are commonly used when translating idiomatic phrases, Chengyu in particular, into English. The four main strategies are: literal translation, free translation, abridged translation and borrowing translation. It also outlined the principles to live by when translating idioms.
@@ -40,6 +40,7 @@ This paper discussed the different strategies that are commonly used when transl
 A list of project dependencies used in this project (managed by Maven):
 \begin{itemize}
 \item Google Web Toolkit and Mojo's Maven Plugin for GWT  (gwt-maven-plugin, version 2.8.1)
+\item mysql-connector-java(version 8.0.13)
 \item GwtBootstrap3 and GwtBootstrap3-extras (gwtbootstrap3 and gwtbootstrap3-extras, version 0.9.4) for button group, button dropdown and multiple select.
 \end{itemize}
 
@@ -47,7 +48,7 @@ A list of project dependencies used in this project (managed by Maven):
 To install our application, please follow the listed instructions:
 
 \begin{enumerate}
-  \item First, you need an environment where GWT can be deployed. At this moment, we are using Eclipse plus a GWT plugin where we retrieved it from Eclipse market place.
+  \item First, you need an environment where GWT can be deployed. At this moment, we are using Eclipse plus a GWT plugin where we retrieved it from Eclipse marketplace.
   \item Then, MySQL is needed in order to import our data.
   \item MySQL Workbench is optional but it helped comparing to MySQL command line tools.
   \item To import our data, you need to run data\_structure.sql file where our data structures and relations were stored.
@@ -61,22 +62,21 @@ To install our application, please follow the listed instructions:
 
 \section{Method}
 \subsection{Pre-processing Steps}
-\indent Currently, there was no ready-made data resources we could find. Thus, we found a chinese chengyu dictionary online resource, calculate all chengyus' frequencies, translated and tagged about 150 records.
+\indent Currently, there was no ready-made data resources we could find. Therefore we found a Chinese Chengyu dictionary online resource, calculate all Chengyus' frequencies against the OpenSubtitles corpus as Dr.Johannes Dellert recommended, translated and tagged about 150 entries.
 
 \subsubsection{Chengyu Data}
 Available at: https://github.com/by-syk/chinese-idiom-db\\
+These are Chengyu collected from the web, with a total count of 12976 entries. Each entry contains a Chengyu, its Pinyin. Other information includes explanation, origin and example sentences all in Chinese. However, some Chengyu are without origin and/or example sentences.
 
 \subsection{Frequency of Chengyu}
-\indent In order to allow Chinese Chengyu learner to learn which chengyu are mostly common used and which chengyus are not. We count each chengyu within a movie subtitile database. Though there are limited resource of chengyu usage, we managed to draw a general idea of how chengyus are used. To count the appearances of each chengyu, we create a separate python program located in the data folder.
+\indent In order to allow Chinese Chengyu learner to learn the most commonly used Chengyu, we count each Chengyu against their occurrence in the OpenSubtitles corpus, which contains subtitles of films. Although Chengyu usage is limited in this corpus, we managed to obtain a general idea of how they are used. To count the occurrence of each Chengyu, we created a separate Python program located in the data folder named chengyu\_frequency.py.
 
 \subsection{Data Format}
-\indent The original data we retrieved was in Comma-separated Value (CSV) formatted. Since we write a Python program to count frequency where Python genetically support JSON and MySQL also support JSON regarding importing data, we use JSON as our data format. As for Tags and chengyu-tag relations, we keep the format as CSV and for data structures, we remain it in SQL format.
+\indent The original data we retrieved was in Comma-separated Value (CSV) formatting. Since we wrote a Python program to count frequency and Python support JSON, and since MySQL also support JSON regarding importing data, we used JSON as our data format (see data.json in the data folder). As for tags and chengyu-tag relations, we kept the format as CSV format (tags.csv and chengyu\_tag.csv in the data folder) and for data structures, we remain in SQL format.
 
 \subsection{Linguistic Problems}
 
-\indent blah.Talk about Chengyu and its status in Chinese. Talk about how the choice of corpora might have affected the frequency observed. Talk about translation difficulties.\\
-Chengyu and Chinese.\\
-Written language and spoken language differ, film language is more so. Film subtitles might subject to the limit of space and time, to use them in a somewhat unnatural way. One improvement to be made could be to incorporate different kinds of corpora. But then there is also a problem with time. Literature might be old and language might be archaic. In this sense, since film are rather recent, could be a good choice.\\
+\indent Written language and spoken language differ, film language is more so. Film subtitles might subject to the limitation of space and time, people may use them in a somewhat unnatural way. Therefore our choice of the OpenSubtitles corpus might have affected the frequency of Chengyu observed, depending on the genres of the film and the language used in the film. One improvement to be made could be to incorporate different kinds of corpora. But then another problem may emerge as the literature used might be old and language might be archaic. In this case, since OpenSubtitles contains contemporary language used in film subtitles, this corpus could be a good choice, other corpora of the same time period may be used for improvement of calculating frequency.\\
 
 \subsection{Lexicographic Decisions}
 
@@ -84,18 +84,18 @@ Written language and spoken language differ, film language is more so. Film subt
 
 \subsection{Search Mechanism}
 
-\indent We split our search function into two parts. The initial search and tag-filter.
+\indent We split our search function into two parts. The initial search and a tag filter.
 
-In our initial search, we first decide which mode the user chose and pass target and mode variables to our search logic class. In this class, we already made SQL statement templates and insert variables into those statement and request database to search.
+In our initial search, we first determine which mode the user choose and pass target and mode variables to our search logic class. In this class, we already made SQL statement templates and inserted variables into those statement and request database to search.
 
-After database returning back, we retrieve the data and pasre the data into an arraylist of Entries. Then, we used the pre-made function to filter the results and sent them to the front.
+After database returning back, we retrieved the data and parsed the data into an arraylist of Entries. Then, we used the pre-made function to filter the results and sent them to the front.
 
-Intuitively, want to our filter function takes place in the front-end written by JavaScripts where industrial standards usually do. However, we found our GWT have problems with this method where user interface was designed in Java and written JavaScripts was actually very hard to step in. Thus, we moved our tag filter function back to Java. 
+Intuitively, we wanted our filter function takes place in the front-end to be written by JavaScripts as the industrial standards usually do. However, we found GWT having problems with this method where user interface was designed in Java and written JavaScripts was actually very hard to step in. Thus, we moved our tag filter function back to Java. 
 
 \subsection{Database}
-\indent We are using MySQL which is the world most common used and free relational database and it is easy to used and maintain.
+\indent We are using MySQL which is the world's most commonly used and free relational database and it is easy to use and maintain.
 
-To design our data tables, we follow first, second and third normalization where we eliminate all repeat records, partial dependency and transfer dependency. Thus, we have chengyu table and tags table and one more associate table which stores the relationships of chengyu and tags where we have IDs for both chengyu and tags as primary keys and foreign keys.
+To design our data tables, we follow first, second and third normalization where we eliminated all repeating records, partial dependency and transfer dependency. Thus, we have Chengyu table and Tags table and one more associate table which stores the relationships of Chengyu and Tags where we have IDs for both Chengyu and Tags as primary keys and foreign keys.
 
 Figure 1 shows the relationships of our tables.
 
@@ -104,22 +104,24 @@ Figure 1 shows the relationships of our tables.
 \section{User Interface}
 
 \subsection{Three Search Mode}
-\indent To search a chengyu, you can directly search it by typing in its Chinese characters. Sometimes, you forget how to write it, and you can search the chengyu by typing in its pinyin.
+\indent To search a Chengyu, you can directly search it by typing in its Chinese characters. If you have forgotten the Chengyu and remember only a part of it, you can search the Chengyu by typing in one of the characters contained in the Chengyu. However, you'll have to go through the results to find your desired Chengyu. In addition you may also search in pinyin.
 
-As for English learner, sometimes you want to search a chengyu which has specific meanning, so that you can type in its English meaning.
+As for English mode, sometimes you may want to search a Chengyu which has a specific meaning. In this case you can type in its English meaning. For example if you want to search for Chengyu containing the meaning of \textit{mistake} in it, you may select English mode, type in \textit{mistake} and search.
 
-Thus, we designed these three search modes where you can search by Chinese, pinyin or English. The switches are shown as Figure 1.
+To summarise, we designed these three search modes where you can search by Chinese, pinyin or English. The switches are displayed as a button group just above the input box, shown in Figure 1.
 
 \indent a figure here for the three mode button
 
 \subsection{Tags}
-\indent One interesting thing about chengyu is that chengyus love to use metaphors of animals, human body parts and numbers.
+\indent One interesting thing about Chengyu is that they love to use metaphors of animals, human body parts and numbers. Therefore we have character tags like \textit{numbers} and \textit{color} indicating these metaphors are incorporated in the Chengyu.
 
-Another interesting thing is that there are certain pattern to form a chengyu, such as "一心一意", "三天两头", "七上八下" where the first and third characters are all numbers.
+Another interesting thing is that there are certain patterns to form a Chengyu, such as "一心一意", "三天两头", "七上八下" where the first and third characters are all numbers. And "一生一世" is in the form of AXAY, where the first and third character are the same, and is also a number. Therefore this Chengyu has two tags: AXAY and numbers. Tags like \textit{AXAY}, \textit{AABB} are form tags.
 
-Attitude is also important to chengyu, a same meaning can be sperated to different chengyus regarding its attitude. For example, "臭味相投" and "志同道合" both mean similar people go together, but the former is used for bad persons such as gangsters and the later is used for good persons such as business partners.
+Attitude is also important to Chengyu, a same meaning can be separated to different Chengyu regarding its attitude. For example, "臭味相投" and "志同道合" both mean similar people go together, but the former is used for bad persons such as gangsters and the later is used for normal people such as business partners. To further illustrate this point, let's continue with our \textit{mistake} example, if you performed the search mentioned above, you'll get three Chengyu: "将功赎罪", "万无一失" and "铸成大错". You may expect all of them to mean something negative as they are related to mistakes. In fact, the first two are quite the opposite. The first one makes up a mistake and the second indicates no mistakes are made, therefore they each have a positive tag. Tags like \textit{positive}, \textit{negative} are the sense tags.
 
-That is why, we design this tag filter to help people narrow down all-kind of chengyus. Figure 2 shows a table of chengyu tag examples and Figure 3 and 4 shows how it looks like in our application. 
+That is why, we designed this tag filter to help people narrow-down all kinds of Chengyu. To perform a tag search, you may use any of the three mode and input some character/pinyin/English word (this is necessary for the search) and select the tags you want. Multiple selection is enabled. However, notice that we have only annotated around 150 Chengyu so there won't be many results if you select more than 2 tags at the same time. If you want to cancel you selection of a specific tag, just click it again and it will be unselected. You can either perform a tag search right from the beginning or narrow-down you search result by selecting tags later. Just press the search button again after your selection. The advanced search button works only as a label. \\
+\\
+Figure 2 shows a table of Chengyu tag examples and Figure 3 and 4 shows how it looks like in our application. 
 
 \indent a table of chengyu tags example 唇齿相依，虎头蛇尾，狗仗人势，一心一意，三天两头， 七上八下， 臭味相投， 志同道合
 
@@ -129,9 +131,11 @@ That is why, we design this tag filter to help people narrow down all-kind of ch
 
 \subsection{Results Display}
 
-\indent Search results are displayed in the lower section of our page, shown as Figure 5, where each chengyu takes a block and each column takes a row. Tags are attached as badges to the title.
+\indent Search results are displayed in the lower section of our page, shown as Figure 5, where each Chengyu takes a block and each column of information in the database takes a row in the block. Tags are attached as badges to the title.
 
 \indent a screenshot of results
+\subsection{Download}
+You may want to download your current search results for future reference. This is performed by the download button. 
 
 \section{Division of Labor}
 

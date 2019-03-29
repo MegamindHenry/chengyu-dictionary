@@ -131,6 +131,8 @@ public class UIPanel extends Composite implements HasText {
 		filter.setVisible(true);
 		filter.setSize("350px", "30px");
 		
+		advancedOption.setActive(false);
+		
 //		outputHTML.setHTML("<h3>Search results will go here<h3>");
 		
 		inputTextBox.addStyleName("form-control");
