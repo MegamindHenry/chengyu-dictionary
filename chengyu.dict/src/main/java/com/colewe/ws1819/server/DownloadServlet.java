@@ -85,8 +85,9 @@ public class DownloadServlet extends HttpServlet {
 							+ "on ct.ChengyuID = c.ID "
 							+ "left join Tags as t "
 							+ "on t.ID = ct.TagID "
-							+ "where EnglishLiteral like ?");
+							+ "where EnglishLiteral like ? or EnglishFigurative like ?");
 					stmt.setString(1, "%" + target + "%");
+					stmt.setString(2, "%" + target + "%");
 					break;
 				default:
 					stmt = conn.prepareStatement("select * from Chengyu as c "
