@@ -190,9 +190,12 @@ Tags    & Organs & Animals, Negative & Organs, Numbers, AXAY & Numbers & Negativ
 \end{itemize}
 
 \section{Discussion and Future Work}
-\indent What we have accomplished with regard to the initial plan we set out. What didn't. I guess one thing is that we did not do the origin translation. Pinyin search.
+\subsection{Technical Problems}
+\indent One of the most annoy thing is that GWT would not re-compile a file after we modified them, specially for our CSS file and Entry file. Currently, we could not find out why this happens and how to fix it. Our temporary solution to this was to delete all files and re-clone and re-import them.
 
-\indent What could be improved given more time invested on the project. 
+Another problem is that GWT seems not to work well with front-end framework such as BootStrap. Currently, we require an BootStrap plug-in for GWT which was already out-of-date and has limited supports for BootStrap components. This is why we want to do some fancy front-end design but we were not able to do so.
+
+Thus, if we have another chance, we probably move our project to another framework, such as Spring for Java or Laravel for PHP. Those framework are not only supporting all web application technologies but also have a large community group to discuss and maintain them.
 
 \bibliographystyle{abbrv}
 \bibliography{refs}
