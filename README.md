@@ -1,37 +1,13 @@
-## Welcome to GitHub Pages
+#How to install
+To install our application, please follow the listed instructions:
 
-You can use the [editor on GitHub](https://github.com/MegamindHenry/chengyu-dictionary/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MegamindHenry/chengyu-dictionary/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1.  First, you need an environment where GWT can be deployed. At this moment, we are using Eclipse plus a GWT plugin where we retrieved it from Eclipse marketplace.
+2. Then, MySQL is needed in order to import our data.
+  * MySQL Workbench is optional but it helped comparing to MySQL command line tools.
+3. To import our data, you need to run `data\_structure.sql` file where our data structures and relations were stored.
+4. Then, you should first import Chengyu data from `chengyu\_data.json` file and tags data from `tags.csv` file, since there are foreign key dependencies.
+5. Then, you can import chengyu tags relations from `chengyu\_tag.csv` file.
+6. Following that, you need to go to `DictionaryServiceImpl.java` (located in `chengyu.dict\src\main\java\com\colewews1819\server\`) where database connection information was hard-coded in. Variables `DB\_URL`, `USER` and `PASS` need to be modified in order to make our program connect to the database.
+7. Please run the application through Eclipse.
+8. Open the page `http://localhost:8888/chengyudict` via a browser. We have tested and passed with Safari, Google Chrome and Firefox.
+9. Enjoy it!

@@ -74,11 +74,9 @@ These are Chengyu collected from the web, with a total count of 12976 entries. E
 \subsection{Data Format}
 \indent The original data we retrieved was in Comma-separated Value (CSV) formatting. Since we wrote a Python program to count frequency and Python support JSON, and since MySQL also support JSON regarding importing data, we used JSON as our data format (see data.json in the data folder). As for tags and chengyu-tag relations, we kept the format as CSV format (tags.csv and chengyu\_tag.csv in the data folder) and for data structures, we remain in SQL format.
 
-\subsection{Linguistic Problems}
+\subsection{Linguistic Problems and Lexicographic Decisions}
 
 \indent Written language and spoken language differ, film language is more so. Film subtitles might subject to the limitation of space and time, people may use them in a somewhat unnatural way. Therefore our choice of the OpenSubtitles corpus might have affected the frequency of Chengyu observed, depending on the genres of the film and the language used in the film. One improvement to be made could be to incorporate different kinds of corpora. But then another problem may emerge as the literature used might be old and language might be archaic. In this case, since OpenSubtitles contains contemporary language used in film subtitles, this corpus could be a good choice, other corpora of the same time period may be used for improvement of calculating frequency.\\
-
-\subsection{Lexicographic Decisions}
 
 \indent How to organise the entries. What information to include. \\
 
@@ -178,5 +176,14 @@ You may want to download your current search results for future reference. This 
 
 \bibliographystyle{abbrv}
 \bibliography{refs}
+\section{References}
+
+By\_syk, 2017, 成语数据 Chinese Idiom data. From: https://github.com/by-syk/chinese-idiom-db
+
+P. Lison and J. Tiedemann, 2016, OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles. In Proceedings of the 10th International Conference on Language Resources and Evaluation (LREC 2016)
+
+Wang, Lanchun \& Wang, Shuo. (2013). A Study of Idiom Translation Strategies between English and Chinese. Theory and Practice in Language Studies. 3. 10.4304/tpls.3.9.1691-1697. 
+
+
 
 \end{document}  
