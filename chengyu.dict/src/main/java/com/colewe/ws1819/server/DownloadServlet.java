@@ -80,7 +80,7 @@ public class DownloadServlet extends HttpServlet {
 					stmt.setString(1, "%" + target + "%");
 					break;
 				case 3:
-					stmt = conn.prepareStatement("select * from Chengyu as c"
+					stmt = conn.prepareStatement("select * from Chengyu as c "
 							+ "left join ChengyuTag as ct "
 							+ "on ct.ChengyuID = c.ID "
 							+ "left join Tags as t "
@@ -89,7 +89,7 @@ public class DownloadServlet extends HttpServlet {
 					stmt.setString(1, "%" + target + "%");
 					break;
 				default:
-					stmt = conn.prepareStatement("select * from Chengyu as c"
+					stmt = conn.prepareStatement("select * from Chengyu as c "
 							+ "left join ChengyuTag as ct "
 							+ "on ct.ChengyuID = c.ID "
 							+ "left join Tags as t "
