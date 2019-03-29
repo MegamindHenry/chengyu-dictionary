@@ -99,10 +99,10 @@ To design our data tables, we follow first, second and third normalization where
 
 Figure 1 shows the relationships of our tables.
 
-\indent a ERD of our table
+\indent an ERD of our table
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=20cm]{erd.png}
+\includegraphics[width=15cm]{erd.png}
 \caption{The relationships of our tables}
 \label{default}
 \end{center}
@@ -137,13 +137,17 @@ That is why, we designed this tag filter to help people narrow-down all kinds of
 \\
 Figure 2 shows a table of Chengyu tag examples and Figure 3 and 4 shows how it looks like in our application. 
 
-\indent a table of chengyu tags example 唇齿相依，虎头蛇尾，狗仗人势，一心一意，三天两头， 七上八下， 臭味相投， 志同道合
+\indent a table of Chengyu tags example 唇齿相依，虎头蛇尾，一心一意， 七上八下， 臭味相投， 志同道合
 
-\begin{table}[]
-\begin{tabular}{lllllllll}
-Chengyu & 唇齿相依   & 虎头蛇尾              & 狗仗人势              & 一心一意                  & 三天两头            & 七上八下            & 臭味相投     & 志同道合     \\
-Tags    & Organs & Animals, Negative & Animals, Negative & Organs, Numbers, AXAY & Organs, Numbers & Organs, Numbers & Pasitive & Pasitive
+\begin{table}[h]
+\resizebox{17cm}{!}{
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l}
+Chengyu & 唇齿相依   & 虎头蛇尾              & 一心一意                  & 七上八下            & 臭味相投     & 志同道合     \\
+\hline
+Tags    & Organs & Animals, Negative & Organs, Numbers, AXAY & Numbers & Negative & Positive
 \end{tabular}
+}
+\caption{Chengyu-Tags Examples}
 \end{table}
 
 \indent a screen shot of filter
