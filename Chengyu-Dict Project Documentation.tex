@@ -90,7 +90,7 @@ In our initial search, we first determine which mode the user choose and pass ta
 
 After database returning back, we retrieved the data and parsed the data into an arraylist of Entries. Then, we used the pre-made function to filter the results and sent them to the front.
 
-Intuitively, we wanted our filter function takes place in the front-end to be written by JavaScripts as the industrial standards usually do. However, we found GWT having problems with this method where user interface was designed in Java and written JavaScripts was actually very hard to step in. Thus, we moved our tag filter function back to Java. 
+Intuitively, we wanted our filter function takes place in the front-end to be written by JavaScript as the industrial standards usually do. However, we found GWT having problems with this method where user interface was designed in Java and written JavaScript was actually very hard to step in. Thus, we moved our tag filter function back to Java. 
 
 \subsection{Database}
 \indent We are using MySQL which is the world's most commonly used and free relational database and it is easy to use and maintain.
@@ -103,14 +103,21 @@ Figure 1 shows the relationships of our tables.
 
 \section{User Interface}
 
-\subsection{Three Search Mode}
+\subsection{Three Search Modes}
 \indent To search a Chengyu, you can directly search it by typing in its Chinese characters. If you have forgotten the Chengyu and remember only a part of it, you can search the Chengyu by typing in one of the characters contained in the Chengyu. However, you'll have to go through the results to find your desired Chengyu. In addition you may also search in pinyin.
 
 As for English mode, sometimes you may want to search a Chengyu which has a specific meaning. In this case you can type in its English meaning. For example if you want to search for Chengyu containing the meaning of \textit{mistake} in it, you may select English mode, type in \textit{mistake} and search.
 
 To summarise, we designed these three search modes where you can search by Chinese, pinyin or English. The switches are displayed as a button group just above the input box, shown in Figure 1.
 
-\indent a figure here for the three mode button
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=10cm]{searchmode.png}%fig2
+\caption{Three Search Modes}
+\label{searchmode}
+\end{center}
+\end{figure}
+
 
 \subsection{Tags}
 \indent One interesting thing about Chengyu is that they love to use metaphors of animals, human body parts and numbers. Therefore we have character tags like \textit{numbers} and \textit{color} indicating these metaphors are incorporated in the Chengyu.
@@ -126,14 +133,29 @@ Figure 2 shows a table of Chengyu tag examples and Figure 3 and 4 shows how it l
 \indent a table of chengyu tags example 唇齿相依，虎头蛇尾，狗仗人势，一心一意，三天两头， 七上八下， 臭味相投， 志同道合
 
 \indent a screen shot of filter
-
-\indent a scree shot of tags badge
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=14cm]{filter.png}
+\caption{Tag Filter}
+\label{default}
+\includegraphics[width=14cm]{badge1.png}
+\caption{Tags are displayed as badges attached to result title}
+\label{default}
+\end{center}
+\end{figure}
 
 \subsection{Results Display}
 
 \indent Search results are displayed in the lower section of our page, shown as Figure 5, where each Chengyu takes a block and each column of information in the database takes a row in the block. Tags are attached as badges to the title.
 
-\indent a screenshot of results
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=15cm]{result.png}
+\caption{Search result for pinyin search mode, input "xin", select tags "Body Part/Organ" and "Positive"}
+\label{default}
+\end{center}
+\end{figure}
+
 \subsection{Download}
 You may want to download your current search results for future reference. This is performed by the download button. 
 
