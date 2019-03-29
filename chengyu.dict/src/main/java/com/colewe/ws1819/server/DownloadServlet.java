@@ -149,6 +149,7 @@ public class DownloadServlet extends HttpServlet {
 			sb.append("<Chinese>" + e.getChinese() + "</Chinese>");
 			sb.append("<Pinyin>" + e.getPinyin() + "</Pinyin>");
 			sb.append("<Abbr>" + e.getAbbr() + "</Abbr>");
+			sb.append("<ChineseExplanation>" + e.getChineseExplanation() + "</ChineseExplanation>");
 			sb.append("<EnglishFigurative>" + e.getEnglishFigurative() + "</EnglishFigurative>");
 			sb.append("<EnglishLiteral>" + e.getEnglishLiteral() + "</EnglishLiteral>");
 			sb.append("<Example>" + e.getExample() + "</Example>");
