@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Related Works}{2}{section.2}
+\contentsline {section}{\numberline {3}Project Dependencies}{3}{section.3}
+\contentsline {section}{\numberline {4}How to install}{3}{section.4}
+\contentsline {section}{\numberline {5}Method}{4}{section.5}
+\contentsline {subsection}{\numberline {5.1}Pre-processing Steps}{4}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Chengyu Data}{4}{subsubsection.5.1.1}
+\contentsline {subsection}{\numberline {5.2}Frequency of Chengyu}{4}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Data Format}{5}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Linguistic Problems and Lexicographic Decisions}{5}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Search Mechanism}{6}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Database}{7}{subsection.5.6}
+\contentsline {section}{\numberline {6}User Interface}{7}{section.6}
+\contentsline {subsection}{\numberline {6.1}Three Search Modes}{7}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Tags}{8}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Results Display}{9}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Download}{9}{subsection.6.4}
+\contentsline {section}{\numberline {7}Division of Labor}{9}{section.7}
+\contentsline {section}{\numberline {8}Discussion and Future Work}{12}{section.8}
+\contentsline {section}{\numberline {9}References}{12}{section.9}
