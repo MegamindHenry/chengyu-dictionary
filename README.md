@@ -1,4 +1,4 @@
-#How to install
+# How to install
 To install our application, please follow the listed instructions:
 
 1.  First, you need an environment where GWT can be deployed. At this moment, we are using Eclipse plus a GWT plugin where we retrieved it from Eclipse marketplace.
