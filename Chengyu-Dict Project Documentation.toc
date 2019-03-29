@@ -17,4 +17,6 @@
 \contentsline {subsection}{\numberline {6.4}Download}{9}{subsection.6.4}
 \contentsline {section}{\numberline {7}Division of Labor}{9}{section.7}
 \contentsline {section}{\numberline {8}Discussion and Future Work}{12}{section.8}
-\contentsline {section}{\numberline {9}References}{12}{section.9}
+\contentsline {subsection}{\numberline {8.1}Linguistic Discussion}{12}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Technical Problems}{12}{subsection.8.2}
+\contentsline {section}{\numberline {9}References}{13}{section.9}
